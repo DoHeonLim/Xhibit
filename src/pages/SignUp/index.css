@@ -1,0 +1,92 @@
+body {
+  background-color: #60069c;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.form-title {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: #555;
+  border-bottom: 1px solid #555;
+  padding-bottom: 1rem;
+}
+
+.form-container {
+  max-width: 32rem;
+  background-color: white;
+  margin: 0 auto;
+  padding: 1rem 0;
+  border-radius: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form-control-input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem 1.5rem 0 2rem;
+  border: 1px solid #f4f4f4;
+  border-radius: 1rem;
+  background-color: #f2f2f2;
+  color: #555;
+  font: 400 0.875rem / 1.875rem "Open Sans", sans-serif;
+  transition: all 0.2s;
+}
+
+.form-group i {
+  position: absolute;
+  left: 88%;
+  top: 40px;
+  color: rgb(101, 95, 102);
+}
+
+.form-control-submit-button {
+  display: inline-block;
+  width: 100%;
+  height: 3.125rem;
+  border: 1px solid #60069c;
+  margin: 0 1.5rem 1.5rem 2rem;
+  border-radius: 1.5rem;
+  background-color: #60069c;
+  color: #eeeeee;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.password-and-signup {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+  color: #60069c;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding-bottom: 2rem;
+}
+
+.password-and-signup span::after {
+  content: "|";
+  margin: 0 0.75rem;
+}
+
+.password-and-signup span:last-child:after {
+  content: "";
+  margin: 0;
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
