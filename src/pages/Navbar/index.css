@@ -1,33 +1,61 @@
+@font-face {
+  font-family: "Jalnan";
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Jalnan";
+}
+
+a {
+  text-decoration: none;
+  color: #422613;
+}
+
 .navbar {
   padding: 0;
   margin: 0;
   display: flex;
   width: 100%;
-  height: 5rem;
-  flex-direction: row;
+  height: 6.25rem;
   align-items: center;
-  background-color: rgb(175, 109, 109);
+  background-color: #f2edd7;
+  justify-content: space-between;
 }
 
 .navbar-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 3;
 }
 
-.navbar-user {
+.navbar-menu {
   display: flex;
-  align-items: center;
-  flex: 1;
+  list-style: none;
 }
 
-.navbar-avatar {
-  display: flex;
-  justify-content: center;
-  flex: 2;
+.navbar-menu li {
+  padding: 0.5rem 2rem;
 }
 
-.navbar-avatar-name {
-  align-self: center;
+.navbar-menu li:last-child {
+  margin-right: 5rem;
+}
+
+.navbar-menu :hover {
+  background: #d49466;
+  border-radius: 4px;
 }

@@ -1,5 +1,29 @@
+@font-face {
+  font-family: "Jalnan";
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
 body {
-  background-color: #60069c;
+  padding: 0;
+  margin: 0;
+  font-family: "Jalnan";
+  background-color: #f2edd7;
+}
+
+a {
+  text-decoration: none;
+  color: #422613;
 }
 
 h1 {
@@ -8,21 +32,32 @@ h1 {
   color: white;
 }
 
-.form-title {
+.logo {
+  max-width: 50rem;
+}
+
+.container {
   display: flex;
-  justify-content: center;
-  font-size: 2rem;
-  color: #555;
-  border-bottom: 1px solid #555;
-  padding-bottom: 1rem;
+  margin: 3rem 0;
 }
 
 .form-container {
-  max-width: 32rem;
+  min-width: 8rem;
+  width: 32rem;
   background-color: white;
   margin: 0 auto;
   padding: 1rem 0;
   border-radius: 1.5rem;
+}
+.form-title {
+  display: flex;
+  justify-content: left;
+  font-size: 2rem;
+  color: #555;
+  border-bottom: 1px solid #555;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  margin: 1rem;
 }
 
 .form-group {
@@ -34,13 +69,12 @@ h1 {
 .form-control-input {
   display: block;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   margin: 1.5rem 1.5rem 0 2rem;
   border: 1px solid #f4f4f4;
   border-radius: 1rem;
   background-color: #f2f2f2;
   color: #555;
-  font: 400 0.875rem / 1.875rem "Open Sans", sans-serif;
   transition: all 0.2s;
 }
 
@@ -48,10 +82,10 @@ h1 {
   display: inline-block;
   width: 100%;
   height: 3.125rem;
-  border: 1px solid #60069c;
-  margin: 0 1.5rem 1.5rem 2rem;
+  border: 1px solid #755139;
+  margin: 2rem 1.5rem 1.5rem 2rem;
   border-radius: 1.5rem;
-  background-color: #60069c;
+  background-color: #755139;
   color: #eeeeee;
   cursor: pointer;
   transition: all 0.2s;
@@ -62,10 +96,9 @@ h1 {
   display: flex;
   justify-content: flex-end;
   margin-right: 2rem;
-  color: #60069c;
+  color: #755139;
   font-weight: 600;
   font-size: 0.75rem;
-  padding-bottom: 2rem;
 }
 
 .password-and-signup span::after {
@@ -76,4 +109,40 @@ h1 {
 .password-and-signup span:last-child:after {
   content: "";
   margin: 0;
+}
+
+/* navbar 임시로 */
+.navbar {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  height: 6.25rem;
+  align-items: center;
+  background-color: #f2edd7;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-menu li {
+  padding: 0.5rem 2rem;
+}
+
+.navbar-menu li:last-child {
+  margin-right: 5rem;
+}
+
+.navbar-menu :hover {
+  background: #d49466;
+  border-radius: 4px;
 }
