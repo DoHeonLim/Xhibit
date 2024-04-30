@@ -1,6 +1,7 @@
 # team04
 ### 📔 전체 기능 명세
 ![poster](./Functional Specification.png)
+
 추가될때마다 업데이트 한다.
 
 ### 피그마 링크
