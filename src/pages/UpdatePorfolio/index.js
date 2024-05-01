@@ -66,11 +66,12 @@ const createEditBtns = () => {
         </svg>
 	`;
 	deleteBtn.appendChild(trashIcon);
+
+	// 삭제 버튼 기능 추가
 	deleteBtn.addEventListener("click", () => {
 		const form = btnContainer
 			.closest(".portfolio-section")
 			.querySelector("form");
-		// Remove the form when trash icon is clicked
 		form.parentElement.remove();
 	});
 
@@ -79,6 +80,7 @@ const createEditBtns = () => {
 	return btnContainer;
 };
 
+// . 만들어주는 함수
 const createDivider = () => {
 	const span = document.createElement("span");
 	span.innerText = ".";
@@ -87,6 +89,7 @@ const createDivider = () => {
 
 // 인풋 만들어주는 함수
 const createInput = (name, placeholder, maxLength = 0, isDate = false) => {
+	console.log(maxLength);
 	const input = document.createElement("input");
 	if (isDate) {
 		input.name = name;
@@ -104,10 +107,10 @@ function createDateInput(section) {
 	const dateInput = document.createElement("div");
 	dateInput.className = "date";
 
-	const startYear = createInput("startYear", "YYYY", true, 4);
-	const startMonth = createInput("startMonth", "MM", true, 2);
-	const endYear = createInput("endYear", "YYYY", true, 4);
-	const endMonth = createInput("endMonth", "MM", true, 2);
+	const startYear = createInput("startYear", "YYYY", 4, true);
+	const startMonth = createInput("startMonth", "MM", 2, true);
+	const endYear = createInput("endYear", "YYYY", 4, true);
+	const endMonth = createInput("endMonth", "MM", 2, true);
 
 	const divider1 = createDivider();
 	const divider2 = createDivider();
@@ -126,11 +129,7 @@ function createDateInput(section) {
 			endMonth
 		);
 	} else {
-		const day = document.createElement("input");
-		day.name = "startMonth";
-		day.maxLength = 2;
-		day.placeholder = "DD";
-
+		const day = createInput("day", "DD", 2, true);
 		dateInput.append(startYear, divider1, startMonth, divider2, day);
 	}
 
