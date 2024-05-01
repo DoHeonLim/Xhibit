@@ -14,48 +14,49 @@
 	font-display: swap;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	padding: 0;
 	margin: 0;
 	font-family: "Jalnan";
-}
-
-a {
-	text-decoration: none;
-	color: #422613;
-}
-
-.navbar {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	width: 100%;
-	height: 6.25rem;
-	align-items: center;
 	background-color: #f2edd7;
-	justify-content: space-between;
 }
 
-.navbar-logo {
+.portfolio-container {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+	padding: 2rem;
 
-.navbar-menu {
-	display: flex;
-	list-style: none;
-}
+	.profile,
+	.resume-sections {
+		margin: 10px;
+	}
 
-.navbar-menu li {
-	padding: 0.5rem 2rem;
-}
+	.profile {
+		background-color: #ffeca8;
+		width: 186px;
+		height: 231px;
+		border-radius: 10px;
+		box-shadow: 1px 3px 3px #00000020;
+	}
 
-.navbar-menu li:last-child {
-	margin-right: 5rem;
-}
+	.education,
+	.awards,
+	.certificate,
+	.projects {
+		background-color: #ffeca8;
+		width: 574px;
+		height: 248.5px;
+		border-radius: 10px;
+		box-shadow: 1px 3px 3px #00000020;
+	}
 
-.navbar-menu :hover {
-	background: #d49466;
-	border-radius: 4px;
+	.awards,
+	.certificate,
+	.projects {
+		margin: 3rem 0;
+	}
 }
