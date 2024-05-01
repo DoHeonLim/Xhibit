@@ -1,0 +1,183 @@
+@font-face {
+  font-family: "Jalnan";
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f2edd7;
+  font-family: "Jalnan";
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: row;
+}
+
+h2 {
+  padding-left: 30%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  font-size: 3.75rem;
+}
+
+.my-card {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+  height: 29rem;
+  margin-left: 5%;
+  background-color: #ffeca8;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.my-card-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.my-card .profile_img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10rem;
+  margin: 2rem 1rem;
+  border: 3px solid #422613;
+}
+
+.my-card-intro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-bottom: 2.5rem;
+  margin-left: 1rem;
+}
+
+.my-card-intro p {
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.card-name {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+
+.card-email {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+
+.my-card-content {
+  margin: 0 1rem;
+  padding: 1rem 1.3rem;
+  min-height: 13rem;
+  background-color: #fff9e3;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modified-button {
+  align-self: flex-end;
+  width: 5.5rem;
+  height: 2rem;
+  background-color: #ffd767;
+  border-radius: 1rem;
+  border: none;
+  font-family: inherit;
+}
+
+.my-card-bottom {
+  margin: 0.3rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.my-card-bottom a {
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.portfolio-info {
+  display: flex;
+  padding-left: 6rem;
+  width: 60%;
+
+  .profile,
+  .resume-content {
+    margin: 10px;
+  }
+
+  .profile,
+  .section {
+    border-radius: 5px;
+    box-shadow: 1px 3px 3px #00000020;
+    background-color: #ffeca8;
+  }
+
+  .section {
+    width: 70rem;
+    height: 30rem;
+  }
+
+  .title-bar {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 3rem;
+    border-bottom: 1px solid #422613;
+  }
+
+  .title-bar h3 {
+    font-weight: 300;
+    font-size: 2rem;
+  }
+
+  .title-bar button {
+    border: none;
+    background: none;
+    display: inline;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .title-bar button:hover {
+    background-color: #dbd8d8a3;
+    transition: 0.5s all;
+    border-radius: 10px;
+  }
+
+  .awards,
+  .certificate,
+  .projects {
+    margin: 3rem 0;
+  }
+}

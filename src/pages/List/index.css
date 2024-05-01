@@ -14,8 +14,8 @@
   font-display: swap;
 }
 
-*{
-	cursor: default;
+* {
+  cursor: default;
 }
 
 body {
@@ -64,138 +64,135 @@ a {
   border-radius: 4px;
 }
 
-
-
-body{
-	margin: 0;
-	background-color: #F2EDD7;
+body {
+  margin: 0;
+  background-color: #f2edd7;
 }
 
-p{
-	margin: 0;
+p {
+  margin: 0;
 }
 
-.header{
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	padding: 1rem 15rem;
-	background-color: #F2EDD7;
-	position: relative;
-	height: 6.25rem;
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1rem 15rem;
+  background-color: #f2edd7;
+  position: relative;
+  height: 6.25rem;
 }
 
-.btn{
-	width: auto;
-    border: none;
-	background-color: #F2EDD7;
-    font-size: 1rem;
-    font-weight: 600;
-	margin-left: 1rem;
+.btn {
+  width: auto;
+  border: none;
+  background-color: #f2edd7;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1rem;
 }
 
-.intro-btn{
-	margin-right: 3rem;
+.intro-btn {
+  margin-right: 3rem;
 }
-.container{
-	margin: 0 30rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.main-title{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin-bottom: 3rem;
-	color: #422613;
+.container {
+  margin: 0 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.main-title .title{
-	font-size: 2.5rem;
-	font-weight: 600;
-	margin: 3rem 0 1rem 0;
-}
-.main-title .content{
-	font-size: 1.33rem;
-	text-align: center;
-}
-
-.user_card-list{
-	width: 90rem;
-	display: grid;
-	justify-items: center;
-	grid-template-columns: repeat(3, 1fr);
-	
+.main-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  color: #422613;
 }
 
-
-.user_card{
-	width: 94%;
-	height: 25rem;
-	background-color: #FFECA8;
-	margin-bottom: 3rem;
-	border-radius: 1rem;
-	display: grid;
-	grid-template-columns: 1fr 4fr;
-	grid-template-rows: repeat(3, 1fr);
-	grid-auto-flow: row;	
-	box-shadow: 3px 3px 0 0 rgba(0, 0, 0, .2);}
-
-.user_card .profile_img{
-	width: 8rem;
-	height: 8rem;
-	border-radius: 10rem;
-	margin: 2rem 1rem;
-	border: 3px solid #422613;
+.main-title .title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 3rem 0 1rem 0;
+}
+.main-title .content {
+  font-size: 1.33rem;
+  text-align: center;
 }
 
-.user_card-intro{
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: flex-end;
-	margin-bottom: 2.5rem;
-	margin-left: 1rem;
+.user_card-list {
+  width: 90rem;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.user_card-intro p{
-	margin-bottom: 0;
-	margin-top: 0.5rem;
+.user_card {
+  width: 94%;
+  height: 25rem;
+  background-color: #ffeca8;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: row;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.2);
 }
 
-.card-name{
-	font-size: 1.7rem;
-	font-weight: 600;
-	letter-spacing: 0.2rem;
+.user_card .profile_img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10rem;
+  margin: 2rem 1rem;
+  border: 3px solid #422613;
 }
 
-.card-email{
-	font-size: 1rem;
-	font-weight: 600;
-	letter-spacing: 0.2rem;
+.user_card-intro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-bottom: 2.5rem;
+  margin-left: 1rem;
 }
 
-.user_card-content{
-	margin: 0 1rem;
-	padding: 1rem 1.3rem;
-	height: 8rem;
-	background-color: #FFF9E3;
-	border-radius: 0.5rem;
-	grid-column: 1 / 4;
+.user_card-intro p {
+  margin-bottom: 0;
+  margin-top: 0.5rem;
 }
 
-.user_card-bottom{
-	grid-column: 1 / 4;
-	margin: 0.3rem 1rem ;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+.card-name {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
 }
-.user_card-bottom a{
-	font-size: 0.9rem;
-	cursor: pointer;
+
+.card-email {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+
+.user_card-content {
+  margin: 0 1rem;
+  padding: 1rem 1.3rem;
+  height: 8rem;
+  background-color: #fff9e3;
+  border-radius: 0.5rem;
+  grid-column: 1 / 4;
+}
+
+.user_card-bottom {
+  grid-column: 1 / 4;
+  margin: 0.3rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.user_card-bottom a {
+  font-size: 0.9rem;
+  cursor: pointer;
 }
