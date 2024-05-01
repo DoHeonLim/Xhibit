@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
 	font-family: "Jalnan";
 	font-weight: normal;
 	font-style: normal;
@@ -12,7 +12,7 @@
 		url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
 			format("truetype");
 	font-display: swap;
-} */
+}
 
 * {
 	margin: 0;
@@ -22,7 +22,7 @@
 body {
 	padding: 0;
 	margin: 0;
-	font-family: "Ubuntu", sans-serif;
+	font-family: sans-serif;
 	background-color: #f2edd7;
 }
 
@@ -31,6 +31,7 @@ h2 {
 	color: #422613;
 	font-weight: 400;
 	font-size: 30px;
+	font-family: "Jalnan";
 }
 
 .portfolio-info {
@@ -47,11 +48,13 @@ h2 {
 		border-radius: 5px;
 		box-shadow: 1px 3px 3px #00000020;
 		background-color: #ffeca8;
+		padding: 1rem;
 	}
 
 	.profile {
 		min-width: 200px;
 		height: 260px;
+		font-family: "Jalnan";
 	}
 
 	.section {
@@ -70,6 +73,7 @@ h2 {
 	.title-bar h3 {
 		font-weight: 300;
 		font-size: 16px;
+		font-family: "Jalnan";
 	}
 
 	.title-bar button {
@@ -89,7 +93,7 @@ h2 {
 	.awards,
 	.certificate,
 	.projects {
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 	}
 }
 
