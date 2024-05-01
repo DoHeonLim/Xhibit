@@ -89,7 +89,6 @@ const createDivider = () => {
 
 // 인풋 만들어주는 함수
 const createInput = (name, placeholder, maxLength = 0, isDate = false) => {
-	console.log(maxLength);
 	const input = document.createElement("input");
 	if (isDate) {
 		input.name = name;

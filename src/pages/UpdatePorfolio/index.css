@@ -26,6 +26,10 @@ body {
 	background-color: #f2edd7;
 }
 
+header {
+	padding: 4vw 0 0;
+}
+
 .portfolio {
 	display: flex;
 	flex-direction: row;
