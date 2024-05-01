@@ -8,8 +8,26 @@ const portfolioSection = [
 	{ className: "projects", title: "프로젝트" },
 ];
 
+// 수정 버튼 누를때만 수정이 가능하게 만들도록 제어하는 함수
+const toggleInputs = (form, disable) => {
+	const inputs = form.querySelectorAll("input");
+	inputs.forEach((input) => (input.disabled = disable));
+};
+
+// 클릭된 곳이 인풋 폼의 부모 엘리먼트 안에 포함이 되어 있지 않고
+// 수정 버튼을 누른 폼일 시 더 이상 수정 못하게 인풋을 disable함
+const handleOutsideClick = (event, form) => {
+	if (
+		!form.parentElement.contains(event.target) &&
+		form.classList.contains("edit")
+	) {
+		form.classList.toggle("edit");
+		toggleInputs(form, true);
+	}
+};
+
 // 수정, delete 버튼 한세트로 만들어 주는 함수
-const initEditBtns = () => {
+const createEditBtns = () => {
 	const btnContainer = document.createElement("div");
 	btnContainer.className = "buttons";
 
@@ -24,6 +42,20 @@ const initEditBtns = () => {
         `;
 	editBtn.appendChild(editIcon);
 
+	editBtn.addEventListener("click", () => {
+		const form = btnContainer
+			.closest(".portfolio-section")
+			.querySelector("form");
+		console.log("Enabling inputs...");
+		toggleInputs(form, false);
+		form.classList.add("edit");
+
+		document.addEventListener("click", (event) => {
+			// console.log("clicked");
+			handleOutsideClick(event, form);
+		});
+	});
+
 	const deleteBtn = document.createElement("div");
 	deleteBtn.className = "btn";
 	const trashIcon = document.createElement("span");
@@ -34,6 +66,13 @@ const initEditBtns = () => {
         </svg>
 	`;
 	deleteBtn.appendChild(trashIcon);
+	deleteBtn.addEventListener("click", () => {
+		const form = btnContainer
+			.closest(".portfolio-section")
+			.querySelector("form");
+		// Remove the form when trash icon is clicked
+		form.parentElement.remove();
+	});
 
 	btnContainer.appendChild(editBtn);
 	btnContainer.appendChild(deleteBtn);
@@ -46,12 +85,17 @@ const createDivider = () => {
 	return span;
 };
 
-// 각 연월일을 입력할 인풋 만들어주는 함수
-const createInput = (name, maxLength, placeholder) => {
+// 인풋 만들어주는 함수
+const createInput = (name, placeholder, maxLength = 0, isDate = false) => {
 	const input = document.createElement("input");
-	input.name = name;
-	input.maxLength = maxLength;
+	if (isDate) {
+		input.name = name;
+		input.maxLength = maxLength;
+	} else {
+		input.className = name;
+	}
 	input.placeholder = placeholder;
+	input.disabled = true;
 	return input;
 };
 
@@ -60,10 +104,10 @@ function createDateInput(section) {
 	const dateInput = document.createElement("div");
 	dateInput.className = "date";
 
-	const startYear = createInput("startYear", 4, "YYYY");
-	const startMonth = createInput("startMonth", 2, "MM");
-	const endYear = createInput("endYear", 4, "YYYY");
-	const endMonth = createInput("endMonth", 2, "MM");
+	const startYear = createInput("startYear", "YYYY", true, 4);
+	const startMonth = createInput("startMonth", "MM", true, 2);
+	const endYear = createInput("endYear", "YYYY", true, 4);
+	const endMonth = createInput("endMonth", "MM", true, 2);
 
 	const divider1 = createDivider();
 	const divider2 = createDivider();
@@ -94,14 +138,14 @@ function createDateInput(section) {
 }
 
 // 학력, 상, 자격증, 플젝 - 각 섹션의 인풋 폼을 만들어 주는 함수
-const initSectionForm = (section) => {
+const createSectionForm = (section) => {
 	const sectionContainer = document.createElement("div");
 	sectionContainer.className = `portfolio-section ${section}`;
 
 	const sectionInput = document.createElement("form");
 	sectionInput.className = `item ${section}`;
 
-	const editBtnContainer = initEditBtns();
+	const editBtnContainer = createEditBtns();
 
 	let date = createDateInput(section);
 
@@ -109,42 +153,33 @@ const initSectionForm = (section) => {
 	// 학력: 학교명, 전공 및 학위, 날짜
 	// 수상이력, 자격증은 구조가 같음 - 날짜, 이름 + 기관
 	// 프로젝트는 이름,날짜, 링크, 플젝 소개
-	if (section === "education" || section === "projects") {
-		const name = document.createElement("input");
-		name.className = section === "education" ? "school-name" : "proj-name";
-		name.placeholder = section === "education" ? "학교명" : "프로젝트 이름";
-		sectionInput.appendChild(name);
+	if (section === "education") {
+		const schoolName = createInput("school-name", "학교명");
+		const major = createInput("major", "전공 및 학위 (ex. 경영학과 학사)");
+		sectionInput.appendChild(schoolName);
+		sectionInput.appendChild(major);
+		sectionInput.appendChild(date);
+	} else if (section === "projects") {
+		const projName = createInput("proj-name", "프로젝트 이름");
+		sectionInput.appendChild(projName);
+		sectionInput.appendChild(date);
 
-		if (section === "education") {
-			const major = document.createElement("input");
-			major.className = "major";
-			major.placeholder = "전공 및 학위 (ex. 경영학과 학사)";
-			sectionInput.appendChild(major);
-			sectionInput.appendChild(date);
-		}
-		if (section === "projects") {
-			sectionInput.appendChild(date);
+		const link = createInput("proj-link", "프로젝트 링크");
+		sectionInput.appendChild(link);
 
-			const link = document.createElement("input");
-			link.placeholder = "프로젝트 링크";
-			sectionInput.appendChild(link);
-
-			const details = document.createElement("input");
-			details.placeholder = "프로젝트 소개";
-			sectionInput.appendChild(details);
-		}
+		const details = createInput("project-details", "프로젝트 소개");
+		sectionInput.appendChild(details);
 	} else {
 		sectionInput.appendChild(date);
 
 		const details = document.createElement("div");
 		details.className = `details ${section}`;
 
-		const name = document.createElement("input");
-		name.placeholder = section === "awards" ? "수상명" : "자격명";
+		const placeholder = section === "awards" ? "수상명" : "자격명";
+		const name = createInput("name", placeholder);
 		details.appendChild(name);
 
-		const institution = document.createElement("input");
-		institution.placeholder = "발급 기관";
+		const institution = createInput("institution-name", "발급 기관");
 		details.appendChild(institution);
 
 		sectionInput.appendChild(details);
@@ -190,13 +225,13 @@ const createSection = (sectionData) => {
 	const addNewItemBtn = document.createElement("button");
 	addNewItemBtn.innerText = "+ 추가";
 	addNewItemBtn.addEventListener("click", async () => {
-		const newForm = initSectionForm(sectionData.className);
+		const newForm = createSectionForm(sectionData.className);
 		section.insertBefore(newForm, section.children[1]);
 	});
 	header.appendChild(addNewItemBtn);
 	section.appendChild(header);
 
-	const sectionForm = initSectionForm(sectionData.className);
+	const sectionForm = createSectionForm(sectionData.className);
 	section.appendChild(sectionForm);
 
 	return section;
