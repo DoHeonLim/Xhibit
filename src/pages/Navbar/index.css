@@ -1,61 +1,59 @@
 @font-face {
-	font-family: "Jalnan";
-	font-weight: normal;
-	font-style: normal;
-	src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
-	src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
-			format("embedded-opentype"),
-		url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
-			format("woff2"),
-		url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
-			format("woff"),
-		url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
-			format("truetype");
-	font-display: swap;
+  font-family: "Jalnan";
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
+      format("truetype");
+  font-display: swap;
 }
 
 body {
-	padding: 0;
-	margin: 0;
-	font-family: "Jalnan";
+  padding: 0;
+  margin: 0;
+  font-family: "Jalnan";
 }
 
 a {
-	text-decoration: none;
-	color: #422613;
+  text-decoration: none;
+  color: #422613;
 }
 
 /*navbar*/
-
-.navbar{
-	height: 6.25rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	padding: 0 30rem 1.5rem;
-	background-color: #f2edd7;
+.navbar {
+  height: 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 10vw 2vw;
+  background-color: #f2edd7;
 }
-
 .navbar-logo {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar-logo img{
-	width: 7rem;
+.navbar-logo img {
+  width: 8vw;
 }
 
 .navbar-menu {
-	display: flex;
-	list-style: none;
+  display: flex;
+  list-style: none;
 }
 
-.navbar-menu a{
-	margin-left: 2.5rem;
-	padding: 0.5rem;
+.navbar-menu a {
+  margin-left: 2.5vw;
+  padding: 0.5vw;
 }
 
 .navbar-menu :hover {
-	border-bottom: 2px solid #422613;
+  border-bottom: 2px solid #422613;
 }

@@ -26,53 +26,52 @@ a {
   color: #422613;
 }
 
-.logo {
-  max-width: 50rem;
-}
-
 .container {
   display: flex;
-  margin: 6rem 30rem;
+  margin: 6vw 8vw;
   justify-content: space-between;
 }
 
-.logo-div{
+.logo-div {
   display: flex;
   align-items: center;
-  margin-left: 5rem;
+  margin-left: 5vw;
+}
+
+.logo {
+  width: 33vw;
 }
 
 .form-container {
-  min-width: 8rem;
-  width: 32rem;
+  min-width: 7vw;
+  width: 32vw;
   background-color: white;
-  padding: 1rem 0;
-  border-radius: 1.5rem;
+  padding: 1.6vw 0.8vw 0;
+  border-radius: 1.3vw;
 }
 
 .form-title {
   display: flex;
   justify-content: left;
-  font-size: 2rem;
+  font-size: calc(0.5rem + 1vw);
   color: #555;
   border-bottom: 1px solid #555;
-  padding-bottom: 1rem;
-  padding-left: 2rem;
-  margin: 1rem;
+  padding-bottom: 0.8vw;
+  padding-left: 1.7vw;
+  margin: 0.8vw;
 }
 
 .form-group {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
-  position: relative;
+  margin-bottom: 0.8vw;
 }
 
 .form-control-input {
   display: block;
   width: 100%;
-  padding: 1rem;
-  margin: 1.5rem 1.5rem 0 2rem;
+  padding: 0.8vw;
+  margin: 1.5vw 1.5vw 0 2vw;
   border: 1px solid #f4f4f4;
   border-radius: 1rem;
   background-color: #f2f2f2;
@@ -81,24 +80,23 @@ a {
 }
 
 .form-group i {
-  position: absolute;
+  /* position: absolute; */
   left: 88%;
-  top: 40px;
   color: rgb(101, 95, 102);
 }
 
 .form-control-submit-button {
   display: inline-block;
   width: 100%;
-  height: 3.125rem;
+  height: 3vw;
   border: 1px solid #755139;
-  margin: 4rem 1.5rem 1.5rem 2rem;
-  border-radius: 1.5rem;
+  margin: 7vw 1.5vw 1.5vw 2vw;
+  border-radius: 1.5vw;
   background-color: #755139;
   color: #eeeeee;
   cursor: pointer;
   transition: all 0.2s;
-  font-size: 1rem;
+  font-size: calc(0.2rem + 1vw);
 }
 
 .password-and-signup {
@@ -107,13 +105,13 @@ a {
   margin-right: 2rem;
   color: #755139;
   font-weight: 600;
-  font-size: 0.75rem;
-  padding-bottom: 2rem;
+  font-size: calc(0.1rem + 0.8vw);
+  padding-bottom: 2vw;
 }
 
 .password-and-signup span::after {
   content: "|";
-  margin: 0 0.75rem;
+  margin: 0 0.75vw;
 }
 
 .password-and-signup span:last-child:after {
@@ -127,34 +125,34 @@ input::-ms-clear {
 }
 
 /*navbar*/
-.navbar{
-	height: 6.25rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	padding: 0 30rem 1.5rem;
-	background-color: #f2edd7;
+.navbar {
+  height: 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 10vw 2vw;
+  background-color: #f2edd7;
 }
 .navbar-logo {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar-logo img{
-	width: 7rem;
+.navbar-logo img {
+  width: 8vw;
 }
 
 .navbar-menu {
-	display: flex;
-	list-style: none;
+  display: flex;
+  list-style: none;
 }
 
-.navbar-menu a{
-	margin-left: 2.5rem;
-	padding: 0.5rem;
+.navbar-menu a {
+  margin-left: 2.5vw;
+  padding: 0.5vw;
 }
 
 .navbar-menu :hover {
-	border-bottom: 2px solid #422613;
+  border-bottom: 2px solid #422613;
 }
