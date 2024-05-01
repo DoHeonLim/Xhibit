@@ -32,21 +32,21 @@ body {
 }
 
 h2 {
-  padding-left: 30%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  font-size: 3.75rem;
+  padding-left: 30vw;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  font-size: 2vw;
 }
 
 .my-card {
   display: flex;
   flex-direction: column;
-  width: 23rem;
-  height: 29rem;
-  margin-left: 5%;
+  width: 15vw;
+  height: 20vw;
+  margin-left: 10vw;
   background-color: #ffeca8;
-  margin-bottom: 3rem;
-  border-radius: 1rem;
+  margin-bottom: 3vw;
+  border-radius: 1vw;
   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -56,10 +56,10 @@ h2 {
 }
 
 .my-card .profile_img {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 10rem;
-  margin: 2rem 1rem;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 10vw;
+  margin: 1vw 1vw;
   border: 3px solid #422613;
 }
 
@@ -69,33 +69,33 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  margin-bottom: 2.5rem;
-  margin-left: 1rem;
+  margin-bottom: 2.5vw;
+  margin-top: 1vw;
 }
 
 .my-card-intro p {
   margin-bottom: 0;
-  margin-top: 0.5rem;
+  margin-top: 0.5vw;
 }
 
 .card-name {
-  font-size: 1.7rem;
+  font-size: calc(0.5rem + 0.7vw);
   font-weight: 600;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.2vw;
 }
 
 .card-email {
-  font-size: 1rem;
+  font-size: calc(0.3rem + 0.5vw);
   font-weight: 600;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1vw;
 }
 
 .my-card-content {
-  margin: 0 1rem;
-  padding: 1rem 1.3rem;
-  min-height: 13rem;
+  margin: 0 1vw;
+  padding: 1vw 1.3vw;
+  min-height: 10vw;
   background-color: #fff9e3;
-  border-radius: 0.5rem;
+  border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -103,81 +103,65 @@ h2 {
 
 .modified-button {
   align-self: flex-end;
-  width: 5.5rem;
-  height: 2rem;
+  width: 4vw;
+  height: 1.8vw;
   background-color: #ffd767;
-  border-radius: 1rem;
+  border-radius: 1vw;
   border: none;
   font-family: inherit;
 }
 
-.my-card-bottom {
-  margin: 0.3rem 1rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.my-card-bottom a {
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
 .portfolio-info {
   display: flex;
-  padding-left: 6rem;
-  width: 60%;
-
-  .profile,
-  .resume-content {
-    margin: 10px;
-  }
+  padding-left: 6vw;
+  width: 60vw;
 
   .profile,
   .section {
-    border-radius: 5px;
-    box-shadow: 1px 3px 3px #00000020;
+    border-radius: 0.5vw;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.2);
     background-color: #ffeca8;
   }
 
   .section {
-    width: 70rem;
-    height: 30rem;
+    width: 50vw;
+    min-height: 20vw;
   }
 
   .title-bar {
-    height: 5rem;
+    height: 5vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 3rem;
+    margin: 0 3vw;
     border-bottom: 1px solid #422613;
   }
 
   .title-bar h3 {
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 2vw;
   }
 
   .title-bar button {
     border: none;
     background: none;
     display: inline;
-    padding: 5px;
+    padding: 0.4vw;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1vw;
     align-self: flex-end;
-    margin-bottom: 1rem;
+    margin-bottom: 1vw;
   }
 
   .title-bar button:hover {
     background-color: #dbd8d8a3;
     transition: 0.5s all;
-    border-radius: 10px;
+    border-radius: 0.5vw;
   }
 
   .awards,
   .certificate,
   .projects {
-    margin: 3rem 0;
+    margin: 3vw 0;
   }
 }
