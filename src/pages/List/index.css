@@ -29,13 +29,12 @@ a {
   color: #422613;
 }
 
-/*navbar*/
 .navbar {
-  height: 6.25rem;
+  height: 5vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 30rem 1.5rem;
+  padding: 0 10vw 2vw;
   background-color: #f2edd7;
 }
 .navbar-logo {
@@ -45,7 +44,7 @@ a {
 }
 
 .navbar-logo img {
-  width: 7rem;
+  width: 8vw;
 }
 
 .navbar-menu {
@@ -54,8 +53,9 @@ a {
 }
 
 .navbar-menu a {
-  margin-left: 2.5rem;
-  padding: 0.5rem;
+  margin-left: 2.5vw;
+  padding: 0.5vw;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar-menu :hover {

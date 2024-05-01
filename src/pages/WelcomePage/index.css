@@ -57,12 +57,10 @@ a {
 .navbar-menu a {
   margin-left: 2.5vw;
   padding: 0.5vw;
-  color: #8D6C56;
   border-bottom: 2px solid transparent;
 }
 
 .navbar-menu :hover {
-  color: #422613;
   border-bottom: 2px solid #422613;
 }
 
