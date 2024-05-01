@@ -65,6 +65,14 @@ a {
   display: flex;
   justify-content: center;
   margin-bottom: 0.8vw;
+  position: relative;
+}
+
+.form-group i {
+  position: absolute;
+  left: 28vw;
+  bottom: 0.8vw;
+  color: rgb(101, 95, 102);
 }
 
 .form-control-input {
@@ -77,12 +85,6 @@ a {
   background-color: #f2f2f2;
   color: #555;
   transition: all 0.2s;
-}
-
-.form-group i {
-  /* position: absolute; */
-  left: 88%;
-  color: rgb(101, 95, 102);
 }
 
 .form-control-submit-button {
