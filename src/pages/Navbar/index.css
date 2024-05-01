@@ -25,15 +25,15 @@ a {
 	color: #422613;
 }
 
-.navbar {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	width: 100%;
+/*navbar*/
+
+.navbar{
 	height: 6.25rem;
-	align-items: center;
-	background-color: #f2edd7;
+	display: flex;
 	justify-content: space-between;
+	align-items: flex-end;
+	padding: 0 30rem 1.5rem;
+	background-color: #f2edd7;
 }
 
 .navbar-logo {
@@ -42,20 +42,20 @@ a {
 	align-items: center;
 }
 
+.navbar-logo img{
+	width: 7rem;
+}
+
 .navbar-menu {
 	display: flex;
 	list-style: none;
 }
 
-.navbar-menu li {
-	padding: 0.5rem 2rem;
-}
-
-.navbar-menu li:last-child {
-	margin-right: 5rem;
+.navbar-menu a{
+	margin-left: 2.5rem;
+	padding: 0.5rem;
 }
 
 .navbar-menu :hover {
-	background: #d49466;
-	border-radius: 4px;
+	border-bottom: 2px solid #422613;
 }
