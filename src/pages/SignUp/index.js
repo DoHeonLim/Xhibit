@@ -32,7 +32,9 @@ inputPassword.onkeyup = function () {
   // console.log(inputPassword.value);
   // 값 입력한 경우
   if (inputPassword.value.length !== 0) {
-    if (
+    if (strongPassword(inputPassword.value)) {
+      strongPasswordMessage.classList.add("hide"); //실패 메시지 숨김
+    } else if (
       isMatch(inputPassword.value, inputPasswordRetype.value) &&
       strongPassword(inputPassword.value)
     ) {
@@ -104,3 +106,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// axios 테스트 코드 - 일단 회원가입하면 local에있는 db에 데이터가 들어간다.
+const form = document.getElementsByTagName("form")[0];
+
+async function onLoginSubmit(e) {
+  // console.log(inputName, inputEmail, inputPassword);
+  const BASE_URL = "http://localhost:8080";
+
+  const baseInstance = await axios.create({
+    baseURL: BASE_URL, // 기본 URL 설정
+  });
+
+  const response = await baseInstance.post("/join", {
+    name: inputName.value,
+    email: inputEmail.value,
+    password: inputPassword.value,
+  });
+
+  console.log(response); // response가 잘 들어왔는지 확인
+}
+
+form.addEventListener("submit", onLoginSubmit);
