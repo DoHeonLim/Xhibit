@@ -1,5 +1,3 @@
-const portfolio = document.querySelector(".resume-content");
-
 // 포폴 섹션 - 학력, 수상이력, 자격증, 플젝
 const portfolioSection = [
 	{ className: "education", title: "학력" },
@@ -32,7 +30,7 @@ const createEditBtns = () => {
 	btnContainer.className = "buttons";
 
 	const editBtn = document.createElement("div");
-	editBtn.className = "btn";
+	editBtn.className = "btn edit";
 	const editIcon = document.createElement("span");
 	editIcon.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#422613" viewBox="0 0 16 16">
@@ -69,10 +67,16 @@ const createEditBtns = () => {
 
 	// 삭제 버튼 기능 추가
 	deleteBtn.addEventListener("click", () => {
-		const form = btnContainer
-			.closest(".portfolio-section")
-			.querySelector("form");
-		form.parentElement.remove();
+		const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+		modal.show();
+
+		const confirmButton = modal._element.querySelector(".btn-primary");
+		confirmButton.addEventListener("click", () => {
+			// Code to delete the form goes here
+			const form = deleteBtn.closest(".portfolio-section");
+			form.remove();
+			modal.hide();
+		});
 	});
 
 	btnContainer.appendChild(editBtn);
