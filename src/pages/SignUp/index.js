@@ -34,6 +34,7 @@ inputPassword.onkeyup = function () {
   if (inputPassword.value.length !== 0) {
     if (strongPassword(inputPassword.value)) {
       strongPasswordMessage.classList.add("hide"); //실패 메시지 숨김
+      submitButton.disabled = false;
     } else {
       strongPasswordMessage.classList.remove("hide"); //실패 메시지 보임
     }
