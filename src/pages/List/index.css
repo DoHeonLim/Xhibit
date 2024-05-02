@@ -1,185 +1,185 @@
 @font-face {
-	font-family: "Jalnan";
-	src: url("../fonts/JalnanTTF.ttf") format("truetype");
+  font-family: "Jalnan";
+  src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
 }
 
 * {
-	cursor: default;
+  cursor: default;
 }
 
 body {
-	padding: 0;
-	margin: 0;
-	font-family: "Jalnan";
+  padding: 0;
+  margin: 0;
+  font-family: "Jalnan";
 }
 
 a {
-	text-decoration: none;
-	color: #422613;
+  text-decoration: none;
+  color: #422613;
 }
 
 .navbar {
-	height: 5vw;
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	padding: 0 10vw 2vw;
-	background-color: #f2edd7;
+  height: 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 10vw 2vw;
+  background-color: #f2edd7;
 }
 .navbar-logo {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-logo img {
-	width: 8vw;
+  width: 8vw;
 }
 
 .navbar-menu {
-	display: flex;
-	list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 .navbar-menu a {
-	margin-left: 2.5vw;
-	padding: 0.5vw;
-	border-bottom: 2px solid transparent;
+  margin-left: 2.5vw;
+  padding: 0.5vw;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar-menu :hover {
-	border-bottom: 2px solid #422613;
+  border-bottom: 2px solid #422613;
 }
 
 body {
-	margin: 0;
-	background-color: #f2edd7;
+  margin: 0;
+  background-color: #f2edd7;
 }
 
 p {
-	margin: 0;
+  margin: 0;
 }
 
 .header {
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	padding: 1rem 15rem;
-	background-color: #f2edd7;
-	position: relative;
-	height: 6.25rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1rem 15rem;
+  background-color: #f2edd7;
+  position: relative;
+  height: 6.25rem;
 }
 
 .btn {
-	width: auto;
-	border: none;
-	background-color: #f2edd7;
-	font-size: 1rem;
-	font-weight: 600;
-	margin-left: 1rem;
+  width: auto;
+  border: none;
+  background-color: #f2edd7;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1rem;
 }
 
 .intro-btn {
-	margin-right: 3rem;
+  margin-right: 3rem;
 }
 .container {
-	margin: 0 30rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  margin: 0 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-title {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin-bottom: 3rem;
-	color: #422613;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  color: #422613;
 }
 
 .main-title .title {
-	font-size: 2.5rem;
-	font-weight: 600;
-	margin: 3rem 0 1rem 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 3rem 0 1rem 0;
 }
 .main-title .content {
-	font-size: 1.33rem;
-	text-align: center;
+  font-size: 1.33rem;
+  text-align: center;
 }
 
 .user_card-list {
-	width: 90rem;
-	display: grid;
-	justify-items: center;
-	grid-template-columns: repeat(3, 1fr);
+  width: 90rem;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .user_card {
-	width: 94%;
-	height: 25rem;
-	background-color: #ffeca8;
-	margin-bottom: 3rem;
-	border-radius: 1rem;
-	display: grid;
-	grid-template-columns: 1fr 4fr;
-	grid-template-rows: repeat(3, 1fr);
-	grid-auto-flow: row;
-	box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.2);
+  width: 94%;
+  height: 25rem;
+  background-color: #ffeca8;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: row;
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.2);
 }
 
 .user_card .profile_img {
-	width: 8rem;
-	height: 8rem;
-	border-radius: 10rem;
-	margin: 2rem 1rem;
-	border: 3px solid #422613;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10rem;
+  margin: 2rem 1rem;
+  border: 3px solid #422613;
 }
 
 .user_card-intro {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: flex-end;
-	margin-bottom: 2.5rem;
-	margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-bottom: 2.5rem;
+  margin-left: 1rem;
 }
 
 .user_card-intro p {
-	margin-bottom: 0;
-	margin-top: 0.5rem;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
 }
 
 .card-name {
-	font-size: 1.7rem;
-	font-weight: 600;
-	letter-spacing: 0.2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
 }
 
 .card-email {
-	font-size: 1rem;
-	font-weight: 600;
-	letter-spacing: 0.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
 }
 
 .user_card-content {
-	margin: 0 1rem;
-	padding: 1rem 1.3rem;
-	height: 8rem;
-	background-color: #fff9e3;
-	border-radius: 0.5rem;
-	grid-column: 1 / 4;
+  margin: 0 1rem;
+  padding: 1rem 1.3rem;
+  height: 8rem;
+  background-color: #fff9e3;
+  border-radius: 0.5rem;
+  grid-column: 1 / 4;
 }
 
 .user_card-bottom {
-	grid-column: 1 / 4;
-	margin: 0.3rem 1rem;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+  grid-column: 1 / 4;
+  margin: 0.3rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .user_card-bottom a {
-	font-size: 0.9rem;
-	cursor: pointer;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
