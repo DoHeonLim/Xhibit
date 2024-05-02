@@ -1,472 +1,490 @@
 @font-face {
-  font-family: "Jalnan";
-  src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
+	font-family: "Jalnan";
+	src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
 }
 
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  font-family: "Jalnan";
-  background-color: #f2edd7;
+	padding: 0;
+	margin: 0;
+	font-family: "Jalnan";
+	background-color: #f2edd7;
 }
 
 header {
-  padding: 4vw 0 0;
+	padding: 4vw 0 0;
 }
 
 .portfolio {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 h2 {
-  padding-left: 36vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  font-size: 2.5vw;
+	padding-left: 36vw;
+	padding-top: 5vw;
+	padding-bottom: 5vw;
+	font-size: 2.5vw;
 }
 
 .my-card {
-  padding: 1vw 0 0 0;
-  display: flex;
-  flex-direction: column;
-  width: 19vw;
-  height: 23vw;
-  margin-left: 10vw;
-  background-color: #ffeca8;
-  margin-bottom: 3vw;
-  border-radius: 0.7vw;
-  box-shadow: 1px 3px 3px #00000020;
+	padding: 1vw;
+	display: flex;
+	flex-direction: column;
+	width: 19vw;
+	height: 23vw;
+	margin-left: 10vw;
+	background-color: #ffeca8;
+	margin-bottom: 3vw;
+	border-radius: 0.7vw;
+	box-shadow: 1px 3px 3px #00000020;
 }
 
 .my-card-header {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .my-card .profile_img {
-  width: 5vw;
-  height: 5vw;
-  border-radius: 10vw;
-  margin: 1vw 1vw;
-  border: 3px solid #422613;
+	width: 5vw;
+	height: 5vw;
+	border-radius: 10vw;
+	margin: 1vw 1vw;
+	border: 3px solid #422613;
 }
 
 .my-card-intro {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  margin-bottom: 2.5vw;
-  margin-top: 1vw;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	margin-bottom: 2.5vw;
+	margin-top: 1vw;
 }
 
 .my-card-intro p {
-  margin-bottom: 0;
-  margin-top: 0.5vw;
+	margin-bottom: 0;
+	margin-top: 0.5vw;
 }
 
 .card-name {
-  font-size: calc(0.5rem + 0.7vw);
-  font-weight: 600;
-  letter-spacing: 0.2vw;
+	font-size: 1.5vw;
+	font-weight: 600;
+	letter-spacing: 0.2vw;
 }
 
 .card-email {
-  font-size: calc(0.3rem + 0.5vw);
-  font-weight: 600;
-  letter-spacing: 0.1vw;
+	font-size: 1vw;
+	font-weight: 600;
+	letter-spacing: 0.1vw;
 }
 
 .my-card-content {
-  font-size: 1.25vw;
-  margin: 0 1vw;
-  padding: 1vw 1.3vw;
-  min-height: 10vw;
-  background-color: #fff9e3;
-  border-radius: 0.5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	font-size: 1.25vw;
+	margin: 0 1vw;
+	padding: 1vw 1.3vw;
+	min-height: 10vw;
+	background-color: #fff9e3;
+	border-radius: 0.5vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .modified-button {
-  align-self: flex-end;
-  width: 4vw;
-  height: 1.8vw;
-  background-color: #ffd767;
-  border-radius: 1vw;
-  border: none;
-  font-family: inherit;
+	align-self: flex-end;
+	width: 4vw;
+	height: 1.8vw;
+	background-color: #ffd767;
+	border-radius: 1vw;
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
 }
 
 .portfolio-info {
-  display: flex;
-  padding-left: 6vw;
-  width: 60vw;
+	display: flex;
+	padding-left: 6vw;
+	width: 60vw;
 
-  .profile,
-  .section {
-    border-radius: 0.5vw;
-    box-shadow: 1px 3px 3px #00000020;
-    background-color: #ffeca8;
-  }
+	.profile,
+	.section {
+		border-radius: 0.5vw;
+		box-shadow: 1px 3px 3px #00000020;
+		background-color: #ffeca8;
+	}
 
-  .section {
-    margin: 0.5vw;
-    padding: 1.5vw;
-    width: 50vw;
-    min-height: 20vw;
-  }
+	.section {
+		margin: 0.5vw;
+		padding: 1.5vw;
+		width: 50vw;
+		min-height: 20vw;
+	}
 
-  .title-bar {
-    height: 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 3vw;
-    border-bottom: 1px solid #422613;
-  }
+	.title-bar {
+		height: 5vw;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 3vw;
+		border-bottom: 1px solid #422613;
+	}
 
-  .title-bar h3 {
-    font-weight: 300;
-    font-size: 1.8vw;
-  }
+	.title-bar h3 {
+		font-weight: 300;
+		font-size: 1.8vw;
+	}
 
-  .title-bar button {
-    border: none;
-    background: none;
-    display: inline;
-    padding: 0.4vw;
-    cursor: pointer;
-    font-size: 1vw;
-    align-self: flex-end;
-    margin-bottom: 1vw;
-  }
+	.title-bar button {
+		border: none;
+		background: none;
+		display: inline;
+		padding: 0.4vw;
+		cursor: pointer;
+		font-size: 1vw;
+		align-self: flex-end;
+		margin-bottom: 1vw;
+	}
 
-  .title-bar button:hover {
-    background-color: #dbd8d8a3;
-    transition: 0.5s all;
-    border-radius: 0.6vw;
-  }
+	.title-bar button:hover {
+		background-color: #dbd8d8a3;
+		transition: 0.5s all;
+		border-radius: 0.6vw;
+	}
 
-  .education,
-  .awards,
-  .certificate,
-  .projects {
-    margin-bottom: 2vw;
-  }
+	.education,
+	.awards,
+	.certificate,
+	.projects {
+		margin-bottom: 2vw;
+	}
 }
 
 .portfolio-section {
-  margin: 0 3vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #422613;
-  font-size: 1.2vw;
+	margin: 0 3vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid #422613;
+	font-size: 1.2vw;
 
-  .item {
-    margin: 1vw 0.5vw;
-    flex-grow: 1;
-  }
+	.item {
+		margin: 1vw 0.5vw;
+		flex-grow: 1;
+	}
 
-  .item input {
-    background: none;
-    border: none;
-    padding: 0.5vw 0;
-    display: flex;
-    width: 100%;
-  }
+	.item input {
+		background: none;
+		border: none;
+		padding: 0.5vw 0;
+		display: flex;
+		width: 100%;
+	}
 
-  .item.awards,
-  .item.certificate {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+	.item.awards,
+	.item.certificate {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-  .details {
-    margin-left: 2rem;
-  }
+	.details {
+		margin-left: 2rem;
+	}
 
-  .date {
-    display: flex;
-    align-items: center;
-  }
+	.date {
+		display: flex;
+		align-items: center;
+	}
 
-  .date input {
-    max-width: 4.2vw;
-    padding-right: 0;
-    text-align: center;
-  }
+	.date input {
+		max-width: 4.2vw;
+		padding-right: 0;
+		text-align: center;
+	}
 
-  .date span {
-    padding-right: 0.5vw;
-  }
+	.date span {
+		padding-right: 0.5vw;
+	}
 
-  .buttons,
-  .btn {
-    display: flex;
-    padding: 0;
-    margin: 0.25vw;
-  }
+	.buttons,
+	.btn {
+		display: flex;
+		padding: 0;
+		margin: 0.25vw;
+	}
 
-  .item input:focus,
-  .btn:active,
-  .btn:focus {
-    border: none !important;
-    outline: none !important;
-  }
+	.item input:focus,
+	.btn:active,
+	.btn:focus {
+		border: none !important;
+		outline: none !important;
+	}
 
-  .btn span {
-    margin: 0 0.5vw;
-  }
+	.btn span {
+		margin: 0 0.5vw;
+	}
 }
 
 @font-face {
-  font-family: "Jalnan";
-  font-weight: normal;
-  font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
-      format("woff"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
-      format("truetype");
-  font-display: swap;
+	font-family: "Jalnan";
+	font-weight: normal;
+	font-style: normal;
+	src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
+	src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
+			format("embedded-opentype"),
+		url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
+			format("woff2"),
+		url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
+			format("woff"),
+		url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
+			format("truetype");
+	font-display: swap;
 }
 
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  font-family: "Jalnan";
-  background-color: #f2edd7;
+	padding: 0;
+	margin: 0;
+	font-family: "Jalnan";
+	background-color: #f2edd7;
 }
 
 .portfolio {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 h2 {
-  padding-left: 36vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  font-size: 2.5vw;
-}
-
-.my-card {
-  padding: 1vw 0 0 0;
-  display: flex;
-  flex-direction: column;
-  width: 19vw;
-  height: 23vw;
-  margin-left: 10vw;
-  background-color: #ffeca8;
-  margin-bottom: 3vw;
-  border-radius: 0.7vw;
-  box-shadow: 1px 3px 3px #00000020;
-}
-
-.my-card-header {
-  display: flex;
-  justify-content: center;
-}
-
-.my-card .profile_img {
-  width: 5vw;
-  height: 5vw;
-  border-radius: 10vw;
-  margin: 1vw 1vw;
-  border: 3px solid #422613;
-}
-
-.my-card-intro {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  margin-bottom: 2.5vw;
-  margin-top: 1vw;
-}
-
-.my-card-intro p {
-  margin-bottom: 0;
-  margin-top: 0.5vw;
-}
-
-.card-name {
-  font-size: calc(0.5rem + 0.7vw);
-  font-weight: 600;
-  letter-spacing: 0.2vw;
-}
-
-.card-email {
-  font-size: calc(0.3rem + 0.5vw);
-  font-weight: 600;
-  letter-spacing: 0.1vw;
-}
-
-.my-card-content {
-  font-size: 1.25vw;
-  margin: 0 1vw;
-  padding: 1vw 1.3vw;
-  min-height: 10vw;
-  background-color: #fff9e3;
-  border-radius: 0.5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.modified-button {
-  align-self: flex-end;
-  width: 4vw;
-  height: 1.8vw;
-  background-color: #ffd767;
-  border-radius: 1vw;
-  border: none;
-  font-family: inherit;
+	padding-left: 36vw;
+	padding-top: 5vw;
+	padding-bottom: 5vw;
+	font-size: 2.5vw;
 }
 
 .portfolio-info {
-  display: flex;
-  padding-left: 6vw;
-  width: 60vw;
+	display: flex;
+	padding-left: 6vw;
+	width: 60vw;
 
-  .profile,
-  .section {
-    border-radius: 0.5vw;
-    box-shadow: 1px 3px 3px #00000020;
-    background-color: #ffeca8;
-  }
+	.profile,
+	.section {
+		border-radius: 0.5vw;
+		box-shadow: 1px 3px 3px #00000020;
+		background-color: #ffeca8;
+	}
 
-  .section {
-    margin: 0.5vw;
-    padding: 1.5vw;
-    width: 50vw;
-    min-height: 20vw;
-  }
+	.section {
+		margin: 0.5vw;
+		padding: 1.5vw;
+		width: 50vw;
+		min-height: 20vw;
+	}
 
-  .title-bar {
-    height: 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 3vw;
-    border-bottom: 1px solid #422613;
-  }
+	.title-bar {
+		height: 5vw;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 3vw;
+		border-bottom: 1px solid #422613;
+	}
 
-  .title-bar h3 {
-    font-weight: 300;
-    font-size: 1.8vw;
-  }
+	.title-bar h3 {
+		font-weight: 300;
+		font-size: 1.8vw;
+	}
 
-  .title-bar button {
-    border: none;
-    background: none;
-    display: inline;
-    padding: 0.4vw;
-    cursor: pointer;
-    font-size: 1vw;
-    align-self: flex-end;
-    margin-bottom: 1vw;
-  }
+	.title-bar button {
+		border: none;
+		background: none;
+		display: inline;
+		padding: 0.4vw;
+		cursor: pointer;
+		font-size: 1vw;
+		align-self: flex-end;
+		margin-bottom: 1vw;
+	}
 
-  .title-bar button:hover {
-    background-color: #dbd8d8a3;
-    transition: 0.5s all;
-    border-radius: 0.6vw;
-  }
+	.title-bar button:hover {
+		background-color: #dbd8d8a3;
+		transition: 0.5s all;
+		border-radius: 0.6vw;
+	}
 
-  .education,
-  .awards,
-  .certificate,
-  .projects {
-    margin-bottom: 2vw;
-  }
+	.education,
+	.awards,
+	.certificate,
+	.projects {
+		margin-bottom: 2vw;
+	}
 }
 
 .portfolio-section {
-  margin: 0 3vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #422613;
-  font-size: 1.2vw;
+	margin: 0 3vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid #422613;
+	font-size: 1.2vw;
 
-  .item {
-    margin: 1vw 0.5vw;
-    flex-grow: 1;
-  }
+	.item {
+		margin: 1vw 0.5vw;
+		flex-grow: 1;
+	}
 
-  .item input {
-    background: none;
-    border: none;
-    padding: 0.5vw 0;
-    display: flex;
-    width: 100%;
-  }
+	.item input {
+		background: none;
+		border: none;
+		padding: 0.5vw 0;
+		display: flex;
+		width: 100%;
+	}
 
-  .item.awards,
-  .item.certificate {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+	.item.awards,
+	.item.certificate {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-  .details {
-    margin-left: 2rem;
-  }
+	.details {
+		margin-left: 2rem;
+	}
 
-  .date {
-    display: flex;
-    align-items: center;
-  }
+	.date {
+		display: flex;
+		align-items: center;
+	}
 
-  .date input {
-    max-width: 4.2vw;
-    padding-right: 0;
-    text-align: center;
-  }
+	.date input {
+		max-width: 4.2vw;
+		padding-right: 0;
+		text-align: center;
+	}
 
-  .date span {
-    padding-right: 0.5vw;
-  }
+	.date span {
+		padding-right: 0.5vw;
+	}
 
-  .buttons,
-  .btn {
-    display: flex;
-    padding: 0;
-    margin: 0.25vw;
-  }
+	.buttons,
+	.btn {
+		display: flex;
+		padding: 0;
+		margin: 0.25vw;
+	}
 
-  .item input:focus,
-  .btn:active,
-  .btn:focus {
-    border: none !important;
-    outline: none !important;
-  }
+	.item input:focus,
+	.btn:active,
+	.btn:focus {
+		border: none !important;
+		outline: none !important;
+	}
 
-  .btn span {
-    margin: 0 0.5vw;
-  }
+	.btn span {
+		margin: 0 0.5vw;
+	}
+}
+
+/* 모달 스타일 */
+
+.modal-content {
+	background-color: #f2edd7;
+	width: 45vw;
+	height: 14vw;
+	display: flex;
+	flex-direction: column;
+
+	.modal-body {
+		text-align: center;
+		height: 7vw;
+
+		p {
+			padding: 0.2vw;
+			font-size: 2vw;
+		}
+	}
+
+	.modal-footer {
+		border-top-color: #42261354;
+		display: flex;
+		justify-content: center;
+		width: 45vw;
+		height: 7vw;
+		padding: 0.5vw;
+
+		button {
+			height: 5vw;
+			flex-grow: 1;
+			border-radius: none;
+			border: none;
+			font-size: 1.5vw;
+		}
+
+		.btn.btn-secondary {
+			background-color: rgb(155, 154, 154);
+			color: white;
+		}
+
+		.btn.btn-primary {
+			background-color: #422613;
+		}
+	}
+}
+
+/* 모달 스타일 */
+
+.modal-content {
+	background-color: #f2edd7;
+	width: 45vw;
+	height: 14vw;
+	display: flex;
+	flex-direction: column;
+
+	.modal-body {
+		text-align: center;
+		height: 7vw;
+
+		p {
+			padding: 0.2vw;
+			font-size: 2vw;
+		}
+	}
+
+	.modal-footer {
+		border-top-color: #42261354;
+		display: flex;
+		justify-content: center;
+		width: 45vw;
+		height: 7vw;
+		padding: 0.5vw;
+
+		button {
+			height: 5vw;
+			flex-grow: 1;
+			border-radius: none;
+			border: none;
+			font-size: 1.5vw;
+		}
+
+		.btn.btn-secondary {
+			background-color: rgb(155, 154, 154);
+			color: white;
+		}
+
+		.btn.btn-primary {
+			background-color: #422613;
+		}
+	}
 }
