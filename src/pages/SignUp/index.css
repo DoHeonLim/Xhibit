@@ -3,6 +3,21 @@
   src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
 }
 
+.hide {
+  display: none;
+}
+
+button:disabled {
+  background-color: #cecece;
+}
+
+.mismatch-message,
+.strongPassword-message {
+  color: rgb(236, 18, 18);
+  font-size: calc(0.5rem + 0.3vw);
+  padding: 0 2vw;
+}
+
 body {
   padding: 0;
   margin: 0;
