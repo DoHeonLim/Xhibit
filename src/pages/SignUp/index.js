@@ -32,7 +32,10 @@ inputPassword.onkeyup = function () {
   // console.log(inputPassword.value);
   // 값 입력한 경우
   if (inputPassword.value.length !== 0) {
-    if (strongPassword(inputPassword.value)) {
+    if (
+      isMatch(inputPassword.value, inputPasswordRetype.value) &&
+      strongPassword(inputPassword.value)
+    ) {
       strongPasswordMessage.classList.add("hide"); //실패 메시지 숨김
       submitButton.disabled = false;
     } else {
@@ -49,7 +52,10 @@ inputPassword.onkeyup = function () {
 inputPasswordRetype.onkeyup = function () {
   // console.log(inputPasswordRetype.value);
   if (inputPasswordRetype.value.length !== 0) {
-    if (isMatch(inputPassword.value, inputPasswordRetype.value)) {
+    if (
+      isMatch(inputPassword.value, inputPasswordRetype.value) &&
+      strongPassword(inputPassword.value)
+    ) {
       mismatchMessage.classList.add("hide"); // 실패 메시지 숨김
       submitButton.disabled = false;
     } else {
