@@ -37,9 +37,11 @@ inputPassword.onkeyup = function () {
       submitButton.disabled = false;
     } else {
       strongPasswordMessage.classList.remove("hide"); //실패 메시지 보임
+      submitButton.disabled = true;
     }
   } else {
     strongPasswordMessage.classList.add("hide");
+    submitButton.disabled = true;
   }
 };
 
@@ -52,9 +54,11 @@ inputPasswordRetype.onkeyup = function () {
       submitButton.disabled = false;
     } else {
       mismatchMessage.classList.remove("hide"); // 실패 메시지 보임
+      submitButton.disabled = true;
     }
   } else {
     mismatchMessage.classList.add("hide"); //실패 메시지 숨김
+    submitButton.disabled = true;
   }
 };
 
