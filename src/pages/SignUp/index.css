@@ -103,7 +103,7 @@ a {
   color: #eeeeee;
   cursor: pointer;
   transition: all 0.2s;
-  font-size: calc(0.2rem + 1vw);
+  font-size: calc(0.1rem + 1vw);
   font-family: inherit;
 }
 
@@ -138,6 +138,7 @@ input::-ms-clear {
 
 .navbar-menu a {
   margin-left: 2.5vw;
+  font-size: calc(0.1rem + 0.9vw);
   padding: 0.5vw;
 }
 

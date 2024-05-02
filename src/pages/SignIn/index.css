@@ -42,6 +42,7 @@ a {
 .navbar-menu a {
   margin-left: 2.5vw;
   padding: 0.5vw;
+  font-size: calc(0.1rem + 0.9vw);
   border-bottom: 2px solid transparent;
 }
 
