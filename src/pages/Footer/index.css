@@ -1,52 +1,41 @@
 @font-face {
-    font-family: "Jalnan";
-    font-weight: normal;
-    font-style: normal;
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.eot?#iefix")
-        format("embedded-opentype"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff2")
-        format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff")
-        format("woff"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.ttf")
-        format("truetype");
-    font-display: swap;
+	font-family: "Jalnan";
+	src: url("../fonts/JalnanTTF.ttf") format("truetype");
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    font-family: "Jalnan";
+	padding: 0;
+	margin: 0;
+	font-family: "Jalnan";
 }
 
 a {
-    text-decoration: none;
-    color: #392619;
+	text-decoration: none;
+	color: #392619;
 }
 
 /*footer*/
 .footer {
-    height: 6vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 1rem 10vw;
-    background-color: #392619;
+	height: 6vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 1rem 10vw;
+	background-color: #392619;
 }
 .footer-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .footer-logo img {
-    width: 8vw;
+	width: 8vw;
 }
 
 .copywright {
-    color: #fff;
-    margin-top: 1vw;
-    font-size: 0.8vw;
+	color: #fff;
+	margin-top: 1vw;
+	font-size: 0.8vw;
 }
