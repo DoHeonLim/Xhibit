@@ -122,10 +122,22 @@ const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 		// e 는 숫자이기 때문에 input 가능함 -> prevent default로 막아야함
 		// +, -도 따로 막아줘야 함
 		// input을 넘버로 하면 property maxLength 가 작동이 안되기 때문에 따로 체크 필요
+		// delete, arrow left & right 등은 허용
 		input.addEventListener("keydown", (event) => {
 			const currValue = event.target.value;
 			const invalidKeys = ["e", "E", "+", "-"];
-			if (invalidKeys.includes(event.key) || currValue.length >= maxLength) {
+			const allowedKeys = [
+				"Backspace",
+				"Delete",
+				"ArrowLeft",
+				"ArrowRight",
+				"ArrowUp",
+				"ArrowDown",
+			];
+			if (
+				invalidKeys.includes(event.key) ||
+				(currValue.length >= maxLength && !allowedKeys.includes(event.code))
+			) {
 				event.preventDefault();
 			}
 		});
