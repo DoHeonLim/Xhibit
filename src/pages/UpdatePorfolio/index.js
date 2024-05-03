@@ -14,15 +14,15 @@ const toggleInputs = (form, disable) => {
 
 // 클릭된 곳이 인풋 폼의 부모 엘리먼트 안에 포함이 되어 있지 않고
 // 수정 버튼을 누른 폼일 시 더 이상 수정 못하게 인풋을 disable함
-const handleOutsideClick = (event, form) => {
-	if (
-		!form.parentElement.contains(event.target) &&
-		form.classList.contains("edit")
-	) {
-		form.classList.toggle("edit");
-		toggleInputs(form, true);
-	}
-};
+// const handleOutsideClick = (event, form) => {
+// 	if (
+// 		!form.parentElement.contains(event.target) &&
+// 		form.classList.contains("edit")
+// 	) {
+// 		form.classList.toggle("edit");
+// 		toggleInputs(form, false);
+// 	}
+// };
 
 // 수정, delete 버튼 한세트로 만들어 주는 함수
 const createEditBtns = () => {
@@ -115,12 +115,32 @@ const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	const input = document.createElement("input");
 	if (isDate) {
 		input.name = name;
-		input.maxLength = maxLength;
+
+		// 날짜는 숫자만 받아야함
+		input.type = "number";
+
+		// e 는 숫자이기 때문에 input 가능함 -> prevent default로 막아야함
+		// +, -도 따로 막아줘야 함
+		// input을 넘버로 하면 property maxLength 가 작동이 안되기 때문에 따로 체크 필요
+		input.addEventListener("keydown", (event) => {
+			const currValue = event.target.value;
+			const invalidKeys = ["e", "E", "+", "-"];
+			if (invalidKeys.includes(event.key) || currValue.length >= maxLength) {
+				event.preventDefault();
+			}
+		});
+
+		// // input type이 숫잠이면 max length가 소용이 없음
+		// input.addEventListener("oninput", function (event) {
+		// 	if (event.value.length > maxLength) {
+		// 		event.preventDefault();
+		// 	}
+		// });
 	} else {
 		input.className = name;
 	}
 	input.placeholder = placeholder;
-	input.disabled = true;
+	input.disabled = false;
 	return input;
 };
 
@@ -151,8 +171,7 @@ function createDateInput(section) {
 			endMonth
 		);
 	} else {
-		const day = createInput("day", "DD", 2, true);
-		dateInput.append(startYear, divider1, startMonth, divider2, day);
+		dateInput.append(startYear, divider1, startMonth);
 	}
 
 	return dateInput;

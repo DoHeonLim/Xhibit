@@ -145,7 +145,7 @@ h2 {
 	.section {
 		margin: 0.5vw;
 		padding: 1.5vw;
-		width: 50vw;
+		width: 55vw;
 		min-height: 20vw;
 	}
 
@@ -178,6 +178,10 @@ h2 {
 		background-color: #dbd8d8a3;
 		transition: 0.5s all;
 		border-radius: 0.6vw;
+	}
+
+	.title-bar button:focus {
+		outline: none;
 	}
 
 	.education,
@@ -219,21 +223,32 @@ h2 {
 
 	.details {
 		margin-left: 2rem;
+		flex-grow: 1;
 	}
 
 	.date {
 		display: flex;
 		align-items: center;
+		font-size: 1vw;
 	}
 
 	.date input {
-		max-width: 4.2vw;
+		max-width: 2vw;
 		padding-right: 0;
-		text-align: center;
+		-webkit-appearance: none;
+	}
+
+	.date input[name="startYear"],
+	.date input[name="endYear"] {
+		max-width: 3vw;
+	}
+
+	.date input[type="number"]::-webkit-inner-spin-button {
+		-webkit-appearance: none;
 	}
 
 	.date span {
-		padding-right: 0.5vw;
+		padding: 0 0.2vw;
 	}
 
 	.buttons,
