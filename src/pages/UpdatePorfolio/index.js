@@ -14,15 +14,15 @@ const toggleInputs = (form, disable) => {
 
 // 클릭된 곳이 인풋 폼의 부모 엘리먼트 안에 포함이 되어 있지 않고
 // 수정 버튼을 누른 폼일 시 더 이상 수정 못하게 인풋을 disable함
-const handleOutsideClick = (event, form) => {
-  if (
-    !form.parentElement.contains(event.target) &&
-    form.classList.contains("edit")
-  ) {
-    form.classList.toggle("edit");
-    toggleInputs(form, true);
-  }
-};
+// const handleOutsideClick = (event, form) => {
+// 	if (
+// 		!form.parentElement.contains(event.target) &&
+// 		form.classList.contains("edit")
+// 	) {
+// 		form.classList.toggle("edit");
+// 		toggleInputs(form, false);
+// 	}
+// };
 
 // 수정, delete 버튼 한세트로 만들어 주는 함수
 const createEditBtns = () => {
@@ -40,6 +40,7 @@ const createEditBtns = () => {
         `;
   editBtn.appendChild(editIcon);
 
+  // 편집버튼 클릭할때 해당 폼 수정 가능하게 해줌
   editBtn.addEventListener("click", () => {
     const form = btnContainer
       .closest(".portfolio-section")
@@ -48,8 +49,11 @@ const createEditBtns = () => {
     toggleInputs(form, false);
     form.classList.add("edit");
 
+    // 해당 폼 바깥을 클릭할때 수정 종료
+    // 문제: 폼을 여러개 만들었을때 다른 폼의 인풋을 클릭하면 클릭 인식이 안됨
+    // clicked가 출력되지 않음 -> 이건 편집 버튼 없애는 걸로 수정
     document.addEventListener("click", (event) => {
-      console.log("clicked");
+      // console.log("clicked");
       handleOutsideClick(event, form);
     });
   });
@@ -71,12 +75,27 @@ const createEditBtns = () => {
     modal.show();
 
     const confirmButton = modal._element.querySelector(".btn-primary");
-    confirmButton.addEventListener("click", () => {
-      // Code to delete the form goes here
-      const form = deleteBtn.closest(".portfolio-section");
-      form.remove();
-      modal.hide();
-    });
+    confirmButton.addEventListener(
+      "click",
+      () => {
+        // Code to delete the form goes here
+        console.log("폼을 삭제합니다");
+        const form = deleteBtn.closest(".portfolio-section");
+        form.remove();
+        modal.hide();
+      },
+      { once: true }
+    );
+
+    const closeButton = modal._element.querySelectorAll("button")[0];
+    closeButton.addEventListener(
+      "click",
+      () => {
+        console.log("삭제 취소");
+        modal.hide();
+      },
+      { once: true }
+    );
   });
 
   btnContainer.appendChild(editBtn);
@@ -92,16 +111,49 @@ const createDivider = () => {
 };
 
 // 인풋 만들어주는 함수
-const createInput = (name, placeholder, maxLength = 0, isDate = false) => {
+
+const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
   const input = document.createElement("input");
   if (isDate) {
     input.name = name;
-    input.maxLength = maxLength;
+
+    // 날짜는 숫자만 받아야함
+    input.type = "number";
+
+    // e 는 숫자이기 때문에 input 가능함 -> prevent default로 막아야함
+    // +, -도 따로 막아줘야 함
+    // input을 넘버로 하면 property maxLength 가 작동이 안되기 때문에 따로 체크 필요
+    // delete, arrow left & right 등은 허용
+    input.addEventListener("keydown", (event) => {
+      const currValue = event.target.value;
+      const invalidKeys = ["e", "E", "+", "-"];
+      const allowedKeys = [
+        "Backspace",
+        "Delete",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "ArrowDown",
+      ];
+      if (
+        invalidKeys.includes(event.key) ||
+        (currValue.length >= maxLength && !allowedKeys.includes(event.code))
+      ) {
+        event.preventDefault();
+      }
+    });
+
+    // // input type이 숫잠이면 max length가 소용이 없음
+    // input.addEventListener("oninput", function (event) {
+    // 	if (event.value.length > maxLength) {
+    // 		event.preventDefault();
+    // 	}
+    // });
   } else {
     input.className = name;
   }
   input.placeholder = placeholder;
-  input.disabled = true;
+  input.disabled = false;
   return input;
 };
 
@@ -120,7 +172,6 @@ function createDateInput(section) {
 
   const dash = document.createElement("span");
   dash.innerText = "~";
-
   if (section === "education" || section === "projects") {
     dateInput.append(
       startYear,
@@ -132,8 +183,7 @@ function createDateInput(section) {
       endMonth
     );
   } else {
-    const day = createInput("day", "DD", 2, true);
-    dateInput.append(startYear, divider1, startMonth, divider2, day);
+    dateInput.append(startYear, divider1, startMonth);
   }
 
   return dateInput;
@@ -248,5 +298,15 @@ const updatePortfolioSections = () => {
     portfolio.appendChild(newSection);
   });
 };
+
+//프로필 자기소개 인풋
+let textarea = document.querySelector(".my-card-content textarea");
+
+textarea.addEventListener("input", function () {
+  const wordLimit = document.querySelector(".word-limit");
+
+  const currLength = textarea.value.length;
+  wordLimit.innerText = `${currLength}/80`;
+});
 
 updatePortfolioSections();
