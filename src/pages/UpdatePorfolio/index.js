@@ -40,6 +40,7 @@ const createEditBtns = () => {
         `;
 	editBtn.appendChild(editIcon);
 
+	// 편집버튼 클릭할때 해당 폼 수정 가능하게 해줌
 	editBtn.addEventListener("click", () => {
 		const form = btnContainer
 			.closest(".portfolio-section")
@@ -48,6 +49,9 @@ const createEditBtns = () => {
 		toggleInputs(form, false);
 		form.classList.add("edit");
 
+		// 해당 폼 바깥을 클릭할때 수정 종료
+		// 문제: 폼을 여러개 만들었을때 다른 폼의 인풋을 클릭하면 클릭 인식이 안됨
+		// clicked가 출력되지 않음 -> 이건 편집 버튼 없애는 걸로 수정
 		document.addEventListener("click", (event) => {
 			// console.log("clicked");
 			handleOutsideClick(event, form);
@@ -71,12 +75,27 @@ const createEditBtns = () => {
 		modal.show();
 
 		const confirmButton = modal._element.querySelector(".btn-primary");
-		confirmButton.addEventListener("click", () => {
-			// Code to delete the form goes here
-			const form = deleteBtn.closest(".portfolio-section");
-			form.remove();
-			modal.hide();
-		});
+		confirmButton.addEventListener(
+			"click",
+			() => {
+				// Code to delete the form goes here
+				console.log("폼을 삭제합니다");
+				const form = deleteBtn.closest(".portfolio-section");
+				form.remove();
+				modal.hide();
+			},
+			{ once: true }
+		);
+
+		const closeButton = modal._element.querySelectorAll("button")[0];
+		closeButton.addEventListener(
+			"click",
+			() => {
+				console.log("삭제 취소");
+				modal.hide();
+			},
+			{ once: true }
+		);
 	});
 
 	btnContainer.appendChild(editBtn);
@@ -248,5 +267,37 @@ const updatePortfolioSections = () => {
 		portfolio.appendChild(newSection);
 	});
 };
+
+let textarea = document.querySelector(".my-card-content textarea");
+let textContainer = document.querySelector(".my-card-content");
+let cardContainer = document.querySelector(".my-card");
+
+textarea.addEventListener("input", function () {
+	let textBoxWith = textarea.getBoundingClientRect();
+	let textLength = textarea.value.length;
+	console.log(textLength);
+	console.log(textBoxWith);
+
+	let currHeight = textarea.getBoundingClientRect().height;
+	let newHeight = textarea.scrollHeight;
+	let heightDiff = newHeight - currHeight;
+
+	console.log("curr", currHeight);
+	console.log("new", newHeight);
+	console.log("diff", heightDiff);
+
+	textarea.style.height =
+		currHeight > newHeight ? `{currHeight}px` : `${newHeight}px`;
+
+	const textContainerRect = textContainer.getBoundingClientRect();
+	textContainer.style.height = `${textContainerRect.height + heightDiff}px`;
+
+	const cardContainerRect = cardContainer.getBoundingClientRect();
+	cardContainer.style.height = `${cardContainerRect.height + heightDiff}px`;
+
+	console.log("textarea:", textarea.style.height);
+	console.log("textContainer:", textContainer.style.height);
+	console.log("cardContainer:", cardContainer.style.height);
+});
 
 updatePortfolioSections();

@@ -36,12 +36,13 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	width: 19vw;
-	height: 23vw;
-	margin-left: 10vw;
+	height: 19vw;
 	background-color: #ffeca8;
+	margin-left: 10vw;
 	margin-bottom: 3vw;
 	border-radius: 0.7vw;
 	box-shadow: 1px 3px 3px #00000020;
+	overflow: auto;
 }
 
 .my-card-header {
@@ -63,13 +64,11 @@ h2 {
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-end;
-	margin-bottom: 2.5vw;
-	margin-top: 1vw;
+	margin: 1.5vw 0;
 }
 
 .my-card-intro p {
-	margin-bottom: 0;
-	margin-top: 0.5vw;
+	margin: 0vw;
 }
 
 .card-name {
@@ -87,24 +86,46 @@ h2 {
 .my-card-content {
 	font-size: 1.25vw;
 	margin: 0 1vw;
-	padding: 1vw 1.3vw;
-	min-height: 10vw;
+	padding: 1vw;
+	min-height: 8vw;
 	background-color: #fff9e3;
 	border-radius: 0.5vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	overflow: auto;
+}
+
+.my-card-content textarea {
+	resize: none;
+	height: 2vw;
+	font-size: 1vw;
+	border: none;
+	background-color: inherit;
+	overflow: auto;
+	flex-grow: 1;
 }
 
 .modified-button {
 	align-self: flex-end;
 	width: 4vw;
-	height: 1.8vw;
+	height: 2vw;
 	background-color: #ffd767;
-	border-radius: 1vw;
+	border-radius: 0.5vw;
 	border: none;
 	font-family: inherit;
-	font-size: inherit;
+	font-size: 1vw;
+}
+
+.modified-button:hover {
+	cursor: pointer;
+	background-color: #dbd8d8a3;
+	transition: 0.5s all;
+	border-radius: 0.6vw;
+}
+
+.my-card-content textarea:focus {
+	outline: none;
 }
 
 .portfolio-info {
