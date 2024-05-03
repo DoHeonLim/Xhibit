@@ -3,6 +3,13 @@
 	src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
 }
 
+/*
+@font-face {
+	font-family: "Pretendard";
+	src: url("../../../public/fonts/PretendardTTF.ttf");
+}
+*/
+
 * {
 	margin: 0;
 	padding: 0;
@@ -23,7 +30,7 @@ body {
 h2 {
 	padding-left: 36vw;
 	padding-top: 3vw;
-	padding-bottom: 5vw;
+	padding-bottom: 2vw;
 	font-size: 2.5vw;
 }
 
@@ -31,7 +38,7 @@ h2 {
 	padding: 1vw;
 	display: flex;
 	flex-direction: column;
-	width: 19vw;
+	width: 22vw;
 	height: 23vw;
 	background-color: #ffeca8;
 	margin-left: 10vw;
@@ -43,14 +50,13 @@ h2 {
 
 .my-card-header {
 	display: flex;
-	justify-content: center;
 }
 
 .my-card .profile_img {
 	width: 5vw;
 	height: 5vw;
 	border-radius: 10vw;
-	margin: 1vw 1vw;
+	margin: 1vw;
 	border: 3px solid #422613;
 }
 
@@ -70,25 +76,25 @@ h2 {
 .card-name {
 	font-size: 1.5vw;
 	font-weight: 600;
-	letter-spacing: 0.2vw;
+	letter-spacing: 0.3vw;
 }
 
 .card-email {
-	font-size: 1vw;
-	font-weight: 600;
+	font-size: 0.9vw;
 	letter-spacing: 0.1vw;
 }
 
 .word-limit {
-	margin-right: 1vw;
-	font-size: 1vw;
+	/*font-family: "Pretendard";*/
+	font-weight: 500;
+	font-size: 0.85vw;
 	text-align: right;
 }
 
 .my-card-content {
 	font-size: 1.25vw;
-	margin: 0 1vw;
 	padding: 1vw;
+	margin-bottom: 0.7vw;
 	min-height: 11vw;
 	background-color: #fff9e3;
 	border-radius: 0.5vw;
@@ -108,10 +114,11 @@ h2 {
 }
 
 .modified-button {
-	align-self: flex-end;
-	width: 4vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 2vw;
-	background-color: #ffd767;
+	background-color: #dbd8d8a3;
 	border-radius: 0.5vw;
 	border: none;
 	font-family: inherit;
@@ -120,7 +127,7 @@ h2 {
 
 .modified-button:hover {
 	cursor: pointer;
-	background-color: #dbd8d8a3;
+	background-color: #ffd767;
 	transition: 0.5s all;
 	border-radius: 0.6vw;
 }
@@ -132,7 +139,7 @@ h2 {
 
 .portfolio-info {
 	display: flex;
-	padding-left: 6vw;
+	padding-left: 3vw;
 	width: 60vw;
 
 	.profile,
@@ -143,18 +150,17 @@ h2 {
 	}
 
 	.section {
-		margin: 0.5vw;
+		margin: 0.5vw 0 2vw;
 		padding: 1.5vw;
 		width: 55vw;
-		min-height: 20vw;
 	}
 
 	.title-bar {
-		height: 5vw;
+		height: 4vw;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin: 0 3vw;
+		margin: 0 1vw;
 		border-bottom: 1px solid #422613;
 	}
 
@@ -171,7 +177,7 @@ h2 {
 		cursor: pointer;
 		font-size: 1vw;
 		align-self: flex-end;
-		margin-bottom: 1vw;
+		margin-bottom: 0.5vw;
 	}
 
 	.title-bar button:hover {
@@ -193,19 +199,21 @@ h2 {
 }
 
 .portfolio-section {
-	margin: 0 3vw;
+	margin: 0 1vw;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	border-top: 1px solid #422613;
-	font-size: 1.2vw;
+	font-size: 1.15vw;
 
 	.item {
-		margin: 1vw 0.5vw;
+		/*font-family: "Pretendard";*/
+		font-weight: 600;
+		margin: 0.5vw;
 		flex-grow: 1;
 	}
 
 	.item input {
+		font-weight: 450;
 		background: none;
 		border: none;
 		padding: 0.5vw 0;
@@ -218,7 +226,7 @@ h2 {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 	}
 
 	.details {
@@ -230,10 +238,12 @@ h2 {
 		display: flex;
 		align-items: center;
 		font-size: 1vw;
+		padding: 0.15vw 0;
 	}
 
 	.date input {
 		max-width: 2vw;
+		text-align: center;
 		padding-right: 0;
 		-webkit-appearance: none;
 	}
@@ -241,6 +251,7 @@ h2 {
 	.date input[name="startYear"],
 	.date input[name="endYear"] {
 		max-width: 3vw;
+		text-align: center;
 	}
 
 	.date input[type="number"]::-webkit-inner-spin-button {
@@ -255,7 +266,7 @@ h2 {
 	.btn {
 		display: flex;
 		padding: 0;
-		margin: 0.25vw;
+		margin: 0.5vw 0;
 	}
 
 	.item input:focus,
@@ -273,18 +284,22 @@ h2 {
 /* 모달 스타일 */
 .modal-content {
 	background-color: #f2edd7;
-	width: 45vw;
+	width: 30vw;
 	height: 14vw;
 	display: flex;
 	flex-direction: column;
 
 	.modal-body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		text-align: center;
 		height: 7vw;
 
 		p {
+			margin: 0;
 			padding: 0.2vw;
-			font-size: 2vw;
+			font-size: 1.8vw;
 		}
 	}
 
@@ -292,16 +307,16 @@ h2 {
 		border-top-color: #42261354;
 		display: flex;
 		justify-content: center;
-		width: 45vw;
-		height: 7vw;
+		width: 30vw;
+		height: 4vw;
 		padding: 0.5vw;
 
 		button {
-			height: 5vw;
-			flex-grow: 1;
+			width: 6vw;
+			height: 3vw;
 			border-radius: none;
 			border: none;
-			font-size: 1.5vw;
+			font-size: 1.2vw;
 		}
 
 		.btn.btn-secondary {

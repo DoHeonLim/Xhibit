@@ -2,6 +2,7 @@
   font-family: "Jalnan";
   src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Pretendard";
   src: url("../../../public/fonts/PretendardTTF.ttf");
