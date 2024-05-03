@@ -15,10 +15,6 @@ body {
 	background-color: #f2edd7;
 }
 
-header {
-	margin: 2vw 0;
-}
-
 .portfolio {
 	display: flex;
 	flex-direction: row;
