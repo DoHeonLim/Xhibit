@@ -2,6 +2,10 @@
   font-family: "Jalnan";
   src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Pretendard";
+  src: url("../../../public/fonts/PretendardTTF.ttf");
+}
 
 * {
   cursor: default;
@@ -133,7 +137,7 @@ p {
   width: 6vw;
   height: 6vw;
   border-radius: 10vw;
-  margin: 2vw 1vw;
+  margin: 1.2vw;
   border: 3px solid #422613;
 }
 
@@ -143,7 +147,7 @@ p {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  margin-bottom: 2.5vw;
+  margin-bottom: 1.5vw;
   margin-left: 1vw;
 }
 
@@ -155,26 +159,27 @@ p {
 .card-name {
   font-size: calc(0.1rem + 1.3vw);
   font-weight: 600;
-  letter-spacing: 0.2vw;
+  letter-spacing: 0.4vw;
 }
 
 .card-email {
   font-size: calc(0.1rem + 0.9vw);
-  font-weight: 600;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1vw;
 }
 
 .user_card-content {
   margin: 0 1vw;
   padding: 1vw 1.3vw;
-  height: 8vw;
+  height: 11.5vw;
   background-color: #fff9e3;
   border-radius: 0.5vw;
   grid-column: 1 / 4;
   font-size: calc(0.1rem + 0.9vw);
+  line-height: 1.8vw;
 }
 
 .user_card-bottom {
+  font-family: "Pretendard";
   grid-column: 1 / 4;
   margin: 0.3vw 1vw;
   display: flex;
@@ -183,5 +188,7 @@ p {
 }
 .user_card-bottom a {
   font-size: calc(0.1rem + 0.9vw);
+  font-size: 0.8vw;
   cursor: pointer;
+  font-weight: 600;
 }
