@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const form = document.getElementsByTagName("form")[0];
 
 async function onLoginSubmit(e) {
-  // console.log(inputName, inputEmail, inputPassword);
+  console.log(inputName, inputEmail, inputPassword);
   const BASE_URL = "http://localhost:8080";
 
   const baseInstance = await axios.create({
