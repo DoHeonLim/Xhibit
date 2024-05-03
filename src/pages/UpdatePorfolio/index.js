@@ -111,7 +111,7 @@ const createDivider = () => {
 };
 
 // 인풋 만들어주는 함수
-const createInput = (name, placeholder, maxLength = 0, isDate = false) => {
+const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	const input = document.createElement("input");
 	if (isDate) {
 		input.name = name;
@@ -268,36 +268,14 @@ const updatePortfolioSections = () => {
 	});
 };
 
+//프로필 자기소개 인풋
 let textarea = document.querySelector(".my-card-content textarea");
-let textContainer = document.querySelector(".my-card-content");
-let cardContainer = document.querySelector(".my-card");
 
 textarea.addEventListener("input", function () {
-	let textBoxWith = textarea.getBoundingClientRect();
-	let textLength = textarea.value.length;
-	console.log(textLength);
-	console.log(textBoxWith);
+	const wordLimit = document.querySelector(".word-limit");
 
-	let currHeight = textarea.getBoundingClientRect().height;
-	let newHeight = textarea.scrollHeight;
-	let heightDiff = newHeight - currHeight;
-
-	console.log("curr", currHeight);
-	console.log("new", newHeight);
-	console.log("diff", heightDiff);
-
-	textarea.style.height =
-		currHeight > newHeight ? `{currHeight}px` : `${newHeight}px`;
-
-	const textContainerRect = textContainer.getBoundingClientRect();
-	textContainer.style.height = `${textContainerRect.height + heightDiff}px`;
-
-	const cardContainerRect = cardContainer.getBoundingClientRect();
-	cardContainer.style.height = `${cardContainerRect.height + heightDiff}px`;
-
-	console.log("textarea:", textarea.style.height);
-	console.log("textContainer:", textContainer.style.height);
-	console.log("cardContainer:", cardContainer.style.height);
+	const currLength = textarea.value.length;
+	wordLimit.innerText = `${currLength}/80`;
 });
 
 updatePortfolioSections();
