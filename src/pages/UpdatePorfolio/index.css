@@ -201,6 +201,7 @@ h2 {
 .portfolio-section {
 	margin: 0 1vw;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	border-top: 1px solid #422613;
 	font-size: 1.15vw;
@@ -262,16 +263,29 @@ h2 {
 		padding: 0 0.2vw;
 	}
 
+	textarea {
+		background-color: inherit;
+		border: none;
+		width: 100%;
+		resize: none;
+	}
+
 	.buttons,
 	.btn {
 		display: flex;
 		padding: 0;
-		margin: 0.5vw 0;
+		margin: 0.25vw;
+	}
+
+	.skill {
+		background-color: #fff9e3;
+		height: 2.2vw;
 	}
 
 	.item input:focus,
 	.btn:active,
-	.btn:focus {
+	.btn:focus,
+	textarea:focus {
 		border: none !important;
 		outline: none !important;
 	}
