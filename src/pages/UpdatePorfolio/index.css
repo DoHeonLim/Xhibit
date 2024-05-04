@@ -277,9 +277,16 @@ h2 {
 		margin: 0.25vw;
 	}
 
+	.chipset {
+		gap: 0.7vw;
+	}
+
 	.skill {
 		background-color: #fff9e3;
 		height: 2.2vw;
+		border-radius: 0.6vw;
+		flex-grow: 0;
+		text-align: center;
 	}
 
 	.item input:focus,
