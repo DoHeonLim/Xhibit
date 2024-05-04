@@ -6,63 +6,16 @@ const portfolioSection = [
 	{ className: "projects", title: "프로젝트" },
 ];
 
-// 수정 버튼 누를때만 수정이 가능하게 만들도록 제어하는 함수
-const toggleInputs = (form, disable) => {
-	const inputs = form.querySelectorAll("input");
-	inputs.forEach((input) => (input.disabled = disable));
-};
-
-// 클릭된 곳이 인풋 폼의 부모 엘리먼트 안에 포함이 되어 있지 않고
-// 수정 버튼을 누른 폼일 시 더 이상 수정 못하게 인풋을 disable함
-// const handleOutsideClick = (event, form) => {
-// 	if (
-// 		!form.parentElement.contains(event.target) &&
-// 		form.classList.contains("edit")
-// 	) {
-// 		form.classList.toggle("edit");
-// 		toggleInputs(form, false);
-// 	}
-// };
-
-// 수정, delete 버튼 한세트로 만들어 주는 함수
+// delete 버튼 만들어 주는 함수
 const createEditBtns = () => {
 	const btnContainer = document.createElement("div");
 	btnContainer.className = "buttons";
-
-	// const editBtn = document.createElement("div");
-	// editBtn.className = "btn edit";
-	// const editIcon = document.createElement("span");
-	// editIcon.innerHTML = `
-	//     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#422613" viewBox="0 0 16 16">
-	//         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" fill="#422613"/>
-	//         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" fill="#422613"/>
-	//     </svg>
-	//     `;
-	// editBtn.appendChild(editIcon);
-
-	// // 편집버튼 클릭할때 해당 폼 수정 가능하게 해줌
-	// editBtn.addEventListener("click", () => {
-	// 	const form = btnContainer
-	// 		.closest(".portfolio-section")
-	// 		.querySelector("form");
-	// 	console.log("Enabling inputs...");
-	// 	toggleInputs(form, false);
-	// 	form.classList.add("edit");
-
-	// 	// 해당 폼 바깥을 클릭할때 수정 종료
-	// 	// 문제: 폼을 여러개 만들었을때 다른 폼의 인풋을 클릭하면 클릭 인식이 안됨
-	// 	// clicked가 출력되지 않음 -> 이건 편집 버튼 없애는 걸로 수정
-	// 	document.addEventListener("click", (event) => {
-	// 		// console.log("clicked");
-	// 		handleOutsideClick(event, form);
-	// 	});
-	// });
 
 	const deleteBtn = document.createElement("div");
 	deleteBtn.className = "btn";
 	const trashIcon = document.createElement("span");
 	trashIcon.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#422613" fill-rule="evenodd" class="bi bi-trash" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2vw" height="2vw" fill="#422613" fill-rule="evenodd" class="bi bi-trash" viewBox="0 0 16 16">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" fill="#422613"/>
             <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" fill="#422613"/>
         </svg>
@@ -98,20 +51,18 @@ const createEditBtns = () => {
 		);
 	});
 
-	// btnContainer.appendChild(editBtn);
 	btnContainer.appendChild(deleteBtn);
 	return btnContainer;
 };
 
-// . 만들어주는 함수
+// 날짜 "."로 나눌 수 있게 . 만들어주는 함수
 const createDivider = () => {
 	const span = document.createElement("span");
 	span.innerText = ".";
 	return span;
 };
 
-// 인풋 만들어주는 함수
-
+// 인풋 타입 만들어주는 함수
 const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	const input = document.createElement("input");
 	if (isDate) {
@@ -120,10 +71,11 @@ const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 		// 날짜는 숫자만 받아야함
 		input.type = "number";
 
-		// e 는 숫자이기 때문에 input 가능함 -> prevent default로 막아야함
+		// e 는 숫자이기 때문에 타입을 숫자로 설정해도 e 넣을 수 있음
+		// 따로 prevent default로 막아야함
 		// +, -도 따로 막아줘야 함
-		// input을 넘버로 하면 property maxLength 가 작동이 안되기 때문에 따로 체크 필요
-		// delete, arrow left & right 등은 허용
+		// input을 넘버로 하면 property maxLength 작동이 안되기 때문에 따로 체크 필요
+		// max length가 되었을때 delete, arrow left & right 등은 허용
 		input.addEventListener("keydown", (event) => {
 			const currValue = event.target.value;
 			const invalidKeys = ["e", "E", "+", "-"];
@@ -186,8 +138,10 @@ function createDateInput(section) {
 	return dateInput;
 }
 
+// 사용자가 프로젝트 섹션에 스킬 추가 할때 칩 만들어서 업데이트 해주는 함수
 const createSkills = (chipset) => {
-	const skills = createInput("skills", "스킬");
+	const skills = createInput("skills", "스킬 태그를 추가해주세요");
+	// chipset.appendChild(skills);
 
 	skills.addEventListener("keypress", async function (event) {
 		if (event.key === "Enter") {
@@ -198,9 +152,11 @@ const createSkills = (chipset) => {
 			chipset.appendChild(skill);
 			callChip();
 			event.target.value = "";
-			console.log("keypress", event.target.value);
 		}
 	});
+
+	// chipset.removeChild(skill);
+
 	return skills;
 };
 
@@ -236,11 +192,14 @@ const createSectionForm = (section) => {
 
 		const details = document.createElement("textarea");
 		details.placeholder = "프로젝트 소개";
+		// 사용자가 쓰는 만큼 textarea가 늘어나거나 줄어들게 하는 함수
 		details.addEventListener("input", function () {
 			details.style.height = "auto";
 			details.style.height = `${details.scrollHeight}px`;
 		});
 
+		// 스킬 부분에 사용자가 스킬 입력하면 칩 만들어줌
+		// ex. react.js 치고 엔터 -> 칩 생성
 		const chipset = document.createElement("md-chip-set");
 		chipset.className = "chipset";
 		const skills = createSkills(chipset);
@@ -270,6 +229,9 @@ const createSectionForm = (section) => {
 	return sectionContainer;
 };
 
+// 엘리먼트 기다려주는 함수
+// 쓰려고 했는데 코드를 수정하면서 필요없게 됨
+// 혹시 몰라 일단 남겨둠
 const waitForElement = (selector) => {
 	return new Promise((resolve) => {
 		const element = document.querySelector(selector);
@@ -327,6 +289,10 @@ const updatePortfolioSections = () => {
 };
 
 //프로필 자기소개 인풋
+// 원래는 사용자가 쓰는 대로 text area랑 container 맞춰서 늘리려고 했는데
+// 줄어드는것도 따로 설정해줘야 해서 일단 그냥 word limit 설정함
+// 사용자가 입력할때마다 얼마만큼 남았는지 보여주는 함수
+// 영어, 한국어, 글자마다 부피가 달라서 여러번 테스트 해보다가 일단 80으로 설정함
 let textarea = document.querySelector(".my-card-content textarea");
 
 textarea.addEventListener("input", function () {
@@ -338,6 +304,7 @@ textarea.addEventListener("input", function () {
 
 updatePortfolioSections();
 
+// 스킬 부분 칩 설정
 async function callChip() {
 	const chip = await waitForElement(".chipset");
 	const currIdx = chip.children.length - 1;
@@ -345,11 +312,23 @@ async function callChip() {
 		chip.children[currIdx].shadowRoot.querySelector(".container");
 	shadowRoot.removeChild(shadowRoot.querySelector(".outline"));
 
-	const label = chip.children[currIdx].shadowRoot
+	const button = chip.children[currIdx].shadowRoot
 		.querySelector(".container")
-		.querySelector("button")
-		.querySelector(".label");
+		.querySelectorAll("button");
+
+	const label = button[0].querySelector(".label");
 	label.style.color = "#4C4C4C";
 	label.style.fontFamily = "jalnan";
 	label.style.fontSize = "1.2vw";
+
+	button.forEach((btn, i) => {
+		const touch = btn.querySelector(".touch");
+		touch.remove();
+
+		if (btn.className.includes("trailing")) {
+			const closeBtn = btn.querySelector(".trailing.icon");
+			closeBtn.style.height = "2vw";
+			closeBtn.style.width = "2vw";
+		}
+	});
 }
