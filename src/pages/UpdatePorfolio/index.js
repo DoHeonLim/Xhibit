@@ -15,10 +15,7 @@ const createEditBtns = () => {
 	deleteBtn.className = "btn";
 	const trashIcon = document.createElement("span");
 	trashIcon.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="2vw" height="2vw" fill="#422613" fill-rule="evenodd" class="bi bi-trash" viewBox="0 0 16 16">
-            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" fill="#422613"/>
-            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" fill="#422613"/>
-        </svg>
+        삭제
 	`;
 	deleteBtn.appendChild(trashIcon);
 
@@ -100,7 +97,6 @@ const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	input.placeholder = placeholder;
 	if (name === "proj-link") {
 		input.type = "url";
-		input.maxLength = 30;
 		input.required = true;
 	}
 	return input;
@@ -183,12 +179,9 @@ const createSectionForm = (section) => {
 		sectionInput.appendChild(major);
 		sectionInput.appendChild(date);
 	} else if (section === "projects") {
-		const projName = createInput("proj-name", "프로젝트 이름");
-		sectionInput.appendChild(projName);
-		sectionInput.appendChild(date);
-
+		const projName = createInput("proj-name", "프로젝트명");
+		
 		const link = createInput("proj-link", "https://example.com");
-		sectionInput.appendChild(link);
 
 		const details = document.createElement("textarea");
 		details.placeholder = "프로젝트 소개";
@@ -204,9 +197,13 @@ const createSectionForm = (section) => {
 		chipset.className = "chipset";
 		const skills = createSkills(chipset);
 
+		sectionInput.appendChild(projName);
+		sectionInput.appendChild(date);
+		sectionInput.appendChild(link);
 		sectionInput.appendChild(details);
 		sectionInput.appendChild(skills);
 		sectionInput.appendChild(chipset);
+
 	} else {
 		sectionInput.appendChild(date);
 
@@ -327,8 +324,8 @@ async function callChip() {
 
 		if (btn.className.includes("trailing")) {
 			const closeBtn = btn.querySelector(".trailing.icon");
-			closeBtn.style.height = "2vw";
-			closeBtn.style.width = "2vw";
+			closeBtn.style.height = "1vw";
+			closeBtn.style.width = "1vw";
 		}
 	});
 }

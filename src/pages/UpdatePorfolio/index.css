@@ -3,12 +3,11 @@
 	src: url("../../../public/fonts/JalnanTTF.ttf") format("truetype");
 }
 
-/*
-@font-face {
+/* @font-face {
 	font-family: "Pretendard";
 	src: url("../../../public/fonts/PretendardTTF.ttf");
-}
-*/
+} */
+
 
 * {
 	margin: 0;
@@ -85,8 +84,8 @@ h2 {
 }
 
 .word-limit {
-	/*font-family: "Pretendard";*/
-	font-weight: 500;
+	/* font-family: "Pretendard"; */
+	/* font-weight: 500; */
 	font-size: 0.85vw;
 	text-align: right;
 }
@@ -181,7 +180,7 @@ h2 {
 	}
 
 	.title-bar button:hover {
-		background-color: #dbd8d8a3;
+		background-color: #fff9e3;
 		transition: 0.5s all;
 		border-radius: 0.6vw;
 	}
@@ -201,13 +200,12 @@ h2 {
 .portfolio-section {
 	margin: 0 1vw;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	border-top: 1px solid #422613;
 	font-size: 1.15vw;
 
 	.item {
-		/*font-family: "Pretendard";*/
+		/* font-family: "Pretendard"; */
 		font-weight: 600;
 		margin: 0.5vw;
 		flex-grow: 1;
@@ -217,7 +215,7 @@ h2 {
 		font-weight: 450;
 		background: none;
 		border: none;
-		padding: 0.5vw 0;
+		padding: 0.5vw;
 		display: flex;
 		width: 100%;
 	}
@@ -236,22 +234,21 @@ h2 {
 	}
 
 	.date {
+		width: auto;
 		display: flex;
 		align-items: center;
 		font-size: 1vw;
-		padding: 0.15vw 0;
 	}
 
 	.date input {
-		max-width: 2vw;
+		max-width: 3vw;
 		text-align: center;
-		padding-right: 0;
 		-webkit-appearance: none;
 	}
 
 	.date input[name="startYear"],
 	.date input[name="endYear"] {
-		max-width: 3vw;
+		max-width: 4vw;
 		text-align: center;
 	}
 
@@ -268,16 +265,16 @@ h2 {
 		border: none;
 		width: 100%;
 		resize: none;
+		padding: 0.5vw;
 	}
 
 	.buttons,
 	.btn {
-		display: flex;
-		padding: 0;
 		margin: 0.25vw;
 	}
 
 	.chipset {
+		margin: 0.5vw 0;
 		gap: 0.7vw;
 	}
 
@@ -295,10 +292,12 @@ h2 {
 	textarea:focus {
 		border: none !important;
 		outline: none !important;
+		background-color: #ffffffa6;
+		border-radius: 0.5vw;
 	}
 
 	.btn span {
-		margin: 0 0.5vw;
+		margin: 0.5vw 0;
 	}
 }
 
