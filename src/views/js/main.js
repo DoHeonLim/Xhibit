@@ -20,14 +20,14 @@
 }
 // 리스트 시작
 
-async function getUsers() {
+function getUsers() {
   const userCardList = document.querySelector(".user_card-list");
   const BASE_URL = "http://localhost:8080";
 
-  const baseInstance = await axios.create({
+  const baseInstance = axios.create({
     baseURL: BASE_URL, // 기본 URL 설정
   });
-  await baseInstance.get("/main").then((res) => {
+  baseInstance.get("/main").then((res) => {
     const users = res.data;
     console.log(users);
     users.forEach(async (user) => {
@@ -48,7 +48,7 @@ async function getUsers() {
             <p></p>
         </div>
         <div class="user_card-bottom">
-            <a href = "../OthersPage/">자세히보기 ></a>
+            <a href = "./othersPage.html/${_id}">자세히보기 ></a>
         </div>
     </div>
         `

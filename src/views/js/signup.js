@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const form = document.getElementsByTagName("form")[0];
 
 async function onLoginSubmit(e) {
+  e.preventDefault();
   console.log(inputName, inputEmail, inputPassword);
   const BASE_URL = "http://localhost:8080";
 
@@ -118,13 +119,15 @@ async function onLoginSubmit(e) {
     baseURL: BASE_URL, // 기본 URL 설정
   });
 
-  const response = await baseInstance.post("/join", {
+  const response = await baseInstance.post("/user/signup", {
     name: inputName.value,
     email: inputEmail.value,
     password: inputPassword.value,
   });
-
   console.log(response); // response가 잘 들어왔는지 확인
+  window.location.href = "./welcomePage.html";
+
+  // response.default.headers.common["jwt"] = response.data.data.token;
 }
 
 form.addEventListener("submit", onLoginSubmit);

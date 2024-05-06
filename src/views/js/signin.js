@@ -10,25 +10,30 @@ const submitButton = document.querySelector(".form-control-submit-button");
 const form = document.getElementsByTagName("form")[0];
 
 async function onLoginSubmit(e) {
-  console.log(inputEmail.value, inputPassword.value);
+  e.preventDefault();
+  // console.log(inputEmail.value, inputPassword.value);
+
   const BASE_URL = "http://localhost:8080";
 
   const baseInstance = await axios.create({
+    // withCredentials: true,
     baseURL: BASE_URL, // 기본 URL 설정
   });
 
+  // 로그인 요청
   const response = await baseInstance.post(
-    "/login",
+    `${BASE_URL}/user/signin`,
     {
       email: inputEmail.value,
       password: inputPassword.value,
     },
-    {
-      headers: { "Content-Type": `application/json` },
-    }
+    { withCredentials: true }
   );
-
-  console.log(response); // response가 잘 들어왔는지 확인
+  console.log(response);
+  if (response.status === 200) {
+    //성공 시
+    // axios.defaults.headers.common["authorization"] = `Bearer ${accessToken}`;
+  }
+  window.location.href = "./main.html";
 }
-
 form.addEventListener("submit", onLoginSubmit);
