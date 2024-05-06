@@ -10,6 +10,7 @@ const cors = require("cors"); // cors 설정을 편안하게 하는 패키지
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
+const mainRouter = require("./routes/main");
 
 const app = express();
 const url = "mongodb://localhost:27017";
@@ -55,6 +56,7 @@ app.post("/saveData", async (req, res) => {
 app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
+app.use("/main", mainRouter);
 
 app.listen(8080);
 
