@@ -61,10 +61,10 @@ app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
 app.use("/main", mainRouter);
-app.use("/education", eduRouter);
-app.use("/award", awardRouter);
-app.use("/certificate", certificateRouter);
-app.use("/project", projectRouter);
+// app.use("/education", eduRouter);
+// app.use("/award", awardRouter);
+// app.use("/certificate", certificateRouter);
+// app.use("/project", projectRouter);
 
 app.listen(8080);
 
