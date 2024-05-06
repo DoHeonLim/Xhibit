@@ -14,11 +14,8 @@ const AwardSchema = new Schema(
     agency: {
       type: String,
     },
-    periodStart: {
-      type: Date,
-    },
-    periodEnd: {
-      type: Date,
+    awardDate: {
+      type: String,
     },
   },
   {

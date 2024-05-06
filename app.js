@@ -7,7 +7,7 @@ const passport = require("passport");
 const passportConfig = require("./passport");
 const cors = require("cors"); // cors 설정을 편안하게 하는 패키지
 
-const indexRouter = require("./routes/index");
+const viewsRouter = require("./routes/views");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
 const mainRouter = require("./routes/main");
@@ -35,6 +35,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(viewsRouter);
+
 app.use(passport.initialize());
 passportConfig();
 
@@ -57,14 +59,13 @@ app.post("/saveData", async (req, res) => {
   }
 });
 
-app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
 app.use("/main", mainRouter);
-// app.use("/education", eduRouter);
-// app.use("/award", awardRouter);
-// app.use("/certificate", certificateRouter);
-// app.use("/project", projectRouter);
+app.use("/education", eduRouter);
+app.use("/award", awardRouter);
+app.use("/certificate", certificateRouter);
+app.use("/project", projectRouter);
 
 app.listen(8080);
 

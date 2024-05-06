@@ -16,11 +16,11 @@ const EducationSchema = new Schema(
       type: String,
     },
     periodStart: {
-      type: Date,
+      type: String,
       required: true,
     },
     periodEnd: {
-      type: Date,
+      type: String,
       required: true,
     },
   },

@@ -24,10 +24,10 @@ const ProjectSchema = new Schema(
       type: [String],
     },
     periodStart: {
-      type: Date,
+      type: String,
     },
     periodEnd: {
-      type: Date,
+      type: String,
     },
   },
   {

@@ -17,7 +17,7 @@ const CertificateSchema = new Schema(
       required: true,
     },
     licenseDate: {
-      type: Date,
+      type: String,
       required: true,
     },
   },
