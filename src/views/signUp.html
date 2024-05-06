@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입</title>
-    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="./css/common.css" rel="stylesheet" type="text/css" />
     <!-- 눈모양 아이콘 -->
     <script
       src="https://kit.fontawesome.com/f08d84d06d.js"
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script defer src="./index.js"></script>
+    <script defer src="./js/signup.js"></script>
   </head>
 
   <body>
@@ -19,23 +19,23 @@
       <!-- navbar -->
       <div class="navbar">
         <div class="navbar-logo">
-          <img src="../../../public/images/logo2.png" />
+          <img src="../../public/images/logo2.png" />
         </div>
         <div class="navbar-menu">
           <a href="">서비스소개</a>
-          <a href="../signIn/index.html">로그인</a>
-          <a href="../signUp/index.html">회원가입</a>
-          <a href="../UpdatePorfolio/index.html">마이페이지</a>
+          <a href="signIn.html">로그인</a>
+          <a href="signUp.html">회원가입</a>
+          <a href="myPage.html">마이페이지</a>
         </div>
       </div>
       <!-- register form -->
-      <div class="container">
+      <div class="sign-container">
         <div class="logo-div">
-          <img class="logo" src="../../../public/images/logo2.png" />
+          <img class="logo" src="../../public/images/logo2.png" />
         </div>
         <div class="form-container">
           <span class="form-title">회원가입</span>
-          <form action="../WelcomePage/index.html">
+          <form action="welcomePage.html">
             <br />
             <div class="form-group">
               <input
@@ -91,7 +91,7 @@
 
             <div class="form-group">
               <button type="submit" class="form-control-submit-button" disabled>
-                <img src="../../../public/images/shape.png" />
+                <img src="../../public/images/shape.png" />
                 회원가입
               </button>
             </div>
