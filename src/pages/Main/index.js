@@ -20,18 +20,18 @@
 }
 // 리스트 시작
 
-async function getPortfolio() {
+async function getUsers() {
   const userCardList = document.querySelector(".user_card-list");
   const BASE_URL = "http://localhost:8080";
 
   const baseInstance = await axios.create({
     baseURL: BASE_URL, // 기본 URL 설정
   });
-  const response = await baseInstance.get("/portfolio").then((res) => {
-    const portFolios = res.data;
-    console.log(portFolios);
-    portFolios.forEach(async (portfolio) => {
-      const { name, email, introduce } = portfolio;
+  await baseInstance.get("/main").then((res) => {
+    const users = res.data;
+    console.log(users);
+    users.forEach(async (user) => {
+      const { _id, name, email, introduce } = user;
       userCardList.insertAdjacentHTML(
         "beforeend",
         `
@@ -48,7 +48,7 @@ async function getPortfolio() {
             <p></p>
         </div>
         <div class="user_card-bottom">
-            <a>자세히보기 ></a>
+            <a href = "../OthersPage/">자세히보기 ></a>
         </div>
     </div>
         `
@@ -57,4 +57,4 @@ async function getPortfolio() {
   });
 }
 
-getPortfolio();
+getUsers();
