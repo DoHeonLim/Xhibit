@@ -9,15 +9,27 @@ const portfolioSection = [
 // delete 버튼 만들어 주는 함수
 const createEditBtns = () => {
 	const btnContainer = document.createElement("div");
-	btnContainer.className = "buttons";
+	btnContainer.className = "button";
+
+	// 수정 버튼 / 확인 버튼
+	const editBtn = document.createElement("div");
+	editBtn.className = "btn save";
+	editBtn.innerText = `학인`;
+	btnContainer.appendChild(editBtn);
+
+	editBtn.addEventListener("click", function () {
+		editBtn.classList.toggle("save");
+		console.log(editBtn.classList);
+		if (editBtn.classList.contains("save")) {
+			editBtn.innerText = "확인";
+		} else {
+			editBtn.innerText = "수정";
+		}
+	});
 
 	const deleteBtn = document.createElement("div");
-	deleteBtn.className = "btn";
-	const trashIcon = document.createElement("span");
-	trashIcon.innerHTML = `
-        삭제
-	`;
-	deleteBtn.appendChild(trashIcon);
+	deleteBtn.className = "btn delete";
+	deleteBtn.innerText = "삭제";
 
 	// 삭제 버튼 기능 추가
 	deleteBtn.addEventListener("click", () => {
@@ -28,7 +40,6 @@ const createEditBtns = () => {
 		confirmButton.addEventListener(
 			"click",
 			() => {
-				// Code to delete the form goes here
 				console.log("폼을 삭제합니다");
 				const form = deleteBtn.closest(".portfolio-section");
 				form.remove();
@@ -156,6 +167,18 @@ const createSkills = (chipset) => {
 	return skills;
 };
 
+function getFormattedDate(section, dateInputs) {
+	const { startYear, startMonth, endYear, endMonth } = dateInputs;
+
+	const start = `${startYear.value}.${startMonth.value}`;
+
+	if (section === "education" || section === "projects") {
+		return start; // If end date is not provided, return only the start date
+	}
+	const end = `${endYear.value}.${endMonth.value}`;
+	return `${start} - ${end}`;
+}
+
 // 학력, 상, 자격증, 플젝 - 각 섹션의 인풋 폼을 만들어 주는 함수
 const createSectionForm = (section) => {
 	const sectionContainer = document.createElement("div");
@@ -163,6 +186,22 @@ const createSectionForm = (section) => {
 
 	const sectionInput = document.createElement("form");
 	sectionInput.className = `item ${section}`;
+
+	sectionInput.addEventListener("submit", (event) => {
+		event.preventDefault(); // Prevent the default form submission behavior
+
+		const dateInputs = {
+			startYear: sectionInput.querySelector('input[name="startYear"]'),
+			startMonth: sectionInput.querySelector('input[name="startMonth"]'),
+			endYear: sectionInput.querySelector('input[name="endYear"]'),
+			endMonth: sectionInput.querySelector('input[name="endMonth"]'),
+		};
+
+		const formattedDate = getFormattedDate(section, dateInputs);
+
+		// Send the formatted date to the backend or do any other necessary operations
+		console.log("날짜:", formattedDate);
+	});
 
 	const editBtnContainer = createEditBtns();
 
@@ -180,7 +219,7 @@ const createSectionForm = (section) => {
 		sectionInput.appendChild(date);
 	} else if (section === "projects") {
 		const projName = createInput("proj-name", "프로젝트명");
-		
+
 		const link = createInput("proj-link", "https://example.com");
 
 		const details = document.createElement("textarea");
@@ -203,7 +242,6 @@ const createSectionForm = (section) => {
 		sectionInput.appendChild(details);
 		sectionInput.appendChild(skills);
 		sectionInput.appendChild(chipset);
-
 	} else {
 		sectionInput.appendChild(date);
 
