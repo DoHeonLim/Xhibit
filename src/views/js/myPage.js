@@ -1,3 +1,5 @@
+import * as educationAPI from "./educationAPI.js";
+
 // 포폴 섹션 - 학력, 수상이력, 자격증, 플젝
 const portfolioSection = [
 	{ className: "education", title: "학력" },
@@ -25,12 +27,6 @@ const createBtns = (form) => {
 	submitBtn.innerText = `학인`;
 	submitBtn.setAttribute("type", "submit");
 	btnContainer.appendChild(submitBtn);
-
-	submitBtn.addEventListener("click", function () {
-		editBtn.classList.toggle("hide");
-		submitBtn.classList.toggle("hide");
-		toggleInputs(form, true);
-	});
 
 	// 수정 버튼
 	const editBtn = document.createElement("div");
@@ -90,9 +86,8 @@ const createDivider = () => {
 // 인풋 타입 만들어주는 함수
 const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	const input = document.createElement("input");
+	input.name = name;
 	if (isDate) {
-		input.name = name;
-
 		// 날짜는 숫자만 받아야함
 		input.type = "number";
 
@@ -265,38 +260,69 @@ const createSectionForm = (section) => {
 
 	sectionContainer.appendChild(sectionInput);
 
-	sectionInput.addEventListener("submit", (event) => {
-		event.preventDefault();
-
-		// required를 설정했는데도 그냥 submit을 누르면 경고가 뜨지 않음
-		// const requiredInputs = sectionInput.querySelectorAll("input[required]");
-
-		// const isAnyRequiredInputEmpty = Array.from(requiredInputs).some(
-		// 	(input) => input.value.trim() === ""
-		// );
-
-		// if (isAnyRequiredInputEmpty) {
-		// 	alert("Please fill in all required fields.");
-		// 	return;
-		// }
-
-		const dateInputs = {
-			startYear: sectionInput.querySelector('input[name="startYear"]'),
-			startMonth: sectionInput.querySelector('input[name="startMonth"]'),
-			endYear: sectionInput.querySelector('input[name="endYear"]'),
-			endMonth: sectionInput.querySelector('input[name="endMonth"]'),
-		};
-
-		const formattedDate = getFormattedDate(section, dateInputs);
-
-		console.log(section);
-
-		// Send the formatted date to the backend or do any other necessary operations
-		console.log("날짜:", formattedDate);
-	});
-
+	sectionInput.addEventListener("submit", (event) =>
+		handleSubmit(event, sectionInput, btnContainer)
+	);
 	return sectionContainer;
 };
+
+async function handleSubmit(event, form, buttons) {
+	event.preventDefault();
+
+	// 사용자가 폼에 필요한 정보를 다 입력했는지 확인
+	if (!form.checkValidity()) {
+		alert("모든 필수 입력 필드를 작성해주세요.");
+		return;
+	}
+
+	// 필요한 정보를 다 입력했으면 submit 버튼을 눌렀을때
+	// 확인 버튼을 숨기고 편집 버튼 보여주기
+	const [submitBtn, editBtn] = buttons.children;
+	editBtn.classList.toggle("hide");
+	submitBtn.classList.toggle("hide");
+	toggleInputs(form, true);
+
+	const sectionInput = event.target;
+	const section = sectionInput.classList.contains("education")
+		? "education"
+		: "other";
+
+	const dateInputs = {
+		startYear: sectionInput.querySelector('input[name="startYear"]'),
+		startMonth: sectionInput.querySelector('input[name="startMonth"]'),
+		endYear: sectionInput.querySelector('input[name="endYear"]'),
+		endMonth: sectionInput.querySelector('input[name="endMonth"]'),
+	};
+
+	const formattedDate = getFormattedDate(section, dateInputs);
+
+	// 유저 아이디 가져오기
+	const userId = new URLSearchParams(window.location.search).get("id");
+
+	if (section === "education") {
+		const schoolName = sectionInput.querySelector(
+			'input[name="school-name"]'
+		).value;
+		const major = sectionInput.querySelector('input[name="major"]').value;
+
+		const educationData = {
+			school: schoolName,
+			major,
+			periodStart: formattedDate.split(" - ")[0],
+			periodEnd: formattedDate.split(" - ")[1],
+		};
+
+		try {
+			const newEducation = await educationAPI.createEducation(
+				userId,
+				educationData
+			);
+			console.log("학력 생성", newEducation);
+		} catch (err) {
+			console.error("학력 생성하는데 오류가 발생했습니다", err);
+		}
+	}
+}
 
 // 엘리먼트 기다려주는 함수
 const waitForElement = (selector) => {
