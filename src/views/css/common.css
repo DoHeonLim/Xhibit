@@ -238,7 +238,6 @@ h2 {
 
 .my-card-intro {
 	display: flex;
-	align-items: center;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-end;
@@ -380,8 +379,6 @@ h2 {
 	font-size: 1.15vw;
 
 	.item {
-		/* font-family: "Pretendard"; */
-		font-weight: 600;
 		margin: 0.5vw;
 		display: flex;
 		justify-content: space-between;
@@ -390,10 +387,10 @@ h2 {
 	.input-info {
 		flex-grow: 2;
 		padding: 0 0.5vw;
+		margin-right: 1vw;
 	}
 
 	.item input {
-		font-weight: 450;
 		background: none;
 		border: none;
 		padding: 0.5vw;
@@ -403,7 +400,6 @@ h2 {
 
 	.item.awards,
 	.item.certificate {
-		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
@@ -449,10 +445,17 @@ h2 {
 		padding: 0.5vw;
 	}
 
-	.buttons,
-	.btn {
+	.buttons{
+		font-family: "pretendard";
 		margin: 0.25vw 0;
-		font-size: 1.25vw;
+		font-size: 1vw;
+		background: none;
+	}
+
+	.btn{
+		font-family: "pretendard";
+		/* margin: 0.25vw 0; */
+		font-size: 1vw;
 		background: none;
 	}
 
@@ -579,33 +582,21 @@ h2 {
 .form-control-input {
 	display: block;
 	width: 100%;
+	height: 1.6vw;
 	padding: 0.8vw;
-	margin: 1.5vw 1.5vw 0 2vw;
+	margin: 0 1.5vw;
 	border: 1px solid #f4f4f4;
 	border-radius: 1rem;
 	background-color: #f2f2f2;
 	color: #555;
 	transition: all 0.2s;
-}
-
-.form-control-submit-button {
-	display: inline-block;
-	width: 100%;
-	height: 3vw;
-	border: 1px solid #755139;
-	margin: 2vw 1.5vw 1.5vw 2vw;
-	border-radius: 1.5vw;
-	background-color: #755139;
-	color: #eeeeee;
-	cursor: pointer;
-	transition: all 0.2s;
-	font-size: calc(0.2rem + 1vw);
+	font-family: inherit;
 }
 
 .password-and-signup {
 	display: flex;
 	justify-content: flex-end;
-	margin-right: 2rem;
+	margin-right: 2vw;
 	color: #755139;
 	font-weight: 600;
 	font-size: calc(0.1rem + 0.8vw);
@@ -675,27 +666,16 @@ button:disabled {
 .form-group i {
 	position: absolute;
 	left: 28vw;
-	bottom: 0.8vw;
+	bottom: 1.2vw;
 	color: rgb(101, 95, 102);
-}
-
-.form-control-input {
-	display: block;
-	width: 100%;
-	padding: 0.8vw;
-	margin: 1.5vw 1.5vw 0 2vw;
-	border: 1px solid #f4f4f4;
-	border-radius: 1rem;
-	background-color: #f2f2f2;
-	color: #555;
-	transition: all 0.2s;
-	font-family: inherit;
 }
 
 .form-control-submit-button {
 	display: inline-block;
 	width: 100%;
 	height: 3vw;
+	font-size: calc(0.1rem + 1vw);
+	font-family: "Pretendard";
 	border: none;
 	margin: 2vw 1.5vw 1.5vw 2vw;
 	border-radius: 1.5vw;
@@ -703,7 +683,7 @@ button:disabled {
 	color: #eeeeee;
 	cursor: pointer;
 	transition: all 0.2s;
-	font-size: calc(0.1rem + 1vw);
+	letter-spacing: 0.1vw;
 }
 
 input::-ms-reveal,

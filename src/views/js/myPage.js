@@ -24,7 +24,7 @@ const createBtns = (form) => {
 	// 확인 버튼 (submit)
 	const submitBtn = document.createElement("button");
 	submitBtn.className = "btn save";
-	submitBtn.innerText = `학인`;
+	submitBtn.innerText = `확인`;
 	submitBtn.setAttribute("type", "submit");
 	btnContainer.appendChild(submitBtn);
 

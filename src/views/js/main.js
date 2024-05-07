@@ -44,8 +44,7 @@ function getUsers() {
             <p class="card-email">${email}</p>
         </div>
         <div class="user_card-content">
-            ${introduce}
-            <p></p>
+            <p>${introduce}</p>
         </div>
         <div class="user_card-bottom">
             <a href = "./othersPage.html/${_id}">자세히보기 ></a>
