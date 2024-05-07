@@ -10,6 +10,8 @@ const portfolioSection = [
 const toggleInputs = (form, disable) => {
 	const inputs = form.querySelectorAll("input");
 	inputs.forEach((input) => (input.disabled = disable));
+	const textareas = form.querySelectorAll("textarea");
+	textareas.forEach((input) => (input.disabled = disable));
 };
 
 // delete 버튼 만들어 주는 함수
@@ -123,6 +125,7 @@ const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	input.placeholder = placeholder;
 	if (name === "proj-link") {
 		input.type = "url";
+		input.required = true;
 	} else {
 		input.required = true;
 	}
@@ -264,6 +267,18 @@ const createSectionForm = (section) => {
 
 	sectionInput.addEventListener("submit", (event) => {
 		event.preventDefault();
+
+		// required를 설정했는데도 그냥 submit을 누르면 경고가 뜨지 않음
+		// const requiredInputs = sectionInput.querySelectorAll("input[required]");
+
+		// const isAnyRequiredInputEmpty = Array.from(requiredInputs).some(
+		// 	(input) => input.value.trim() === ""
+		// );
+
+		// if (isAnyRequiredInputEmpty) {
+		// 	alert("Please fill in all required fields.");
+		// 	return;
+		// }
 
 		const dateInputs = {
 			startYear: sectionInput.querySelector('input[name="startYear"]'),

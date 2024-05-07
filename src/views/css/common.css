@@ -418,6 +418,7 @@ h2 {
 		display: flex;
 		align-items: center;
 		font-size: 1vw;
+		margin-left: -0.5vw;
 	}
 
 	.date input {
