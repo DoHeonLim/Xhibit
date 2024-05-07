@@ -6,8 +6,14 @@ const portfolioSection = [
 	{ className: "projects", title: "프로젝트" },
 ];
 
+// 수정 버튼 누를때만 수정이 가능하게 만들도록 제어하는 함수
+const toggleInputs = (form, disable) => {
+	const inputs = form.querySelectorAll("input");
+	inputs.forEach((input) => (input.disabled = disable));
+};
+
 // delete 버튼 만들어 주는 함수
-const createBtns = () => {
+const createBtns = (form) => {
 	const btnContainer = document.createElement("div");
 	btnContainer.className = "buttons";
 
@@ -21,11 +27,11 @@ const createBtns = () => {
 	submitBtn.addEventListener("click", function () {
 		editBtn.classList.toggle("hide");
 		submitBtn.classList.toggle("hide");
+		toggleInputs(form, true);
 	});
 
 	// 수정 버튼
 	const editBtn = document.createElement("div");
-	// editBtn.className = "btn edit";
 	editBtn.className = "btn edit hide";
 	editBtn.innerText = `수정`;
 	btnContainer.appendChild(editBtn);
@@ -33,6 +39,7 @@ const createBtns = () => {
 	editBtn.addEventListener("click", function () {
 		editBtn.classList.toggle("hide");
 		submitBtn.classList.toggle("hide");
+		toggleInputs(form, false);
 	});
 
 	const deleteBtn = document.createElement("div");
@@ -116,6 +123,8 @@ const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	input.placeholder = placeholder;
 	if (name === "proj-link") {
 		input.type = "url";
+	} else {
+		input.required = true;
 	}
 	return input;
 };
@@ -177,7 +186,7 @@ function getFormattedDate(section, dateInputs) {
 	const start = `${startYear.value}.${startMonth.value}`;
 
 	if (section === "awards" || section === "certificate") {
-		return start; // If end date is not provided, return only the start date
+		return start;
 	}
 	const end = `${endYear.value}.${endMonth.value}`;
 	return `${start} - ${end}`;
@@ -195,7 +204,7 @@ const createSectionForm = (section) => {
 	inputInfo.className = "input-info";
 	sectionInput.appendChild(inputInfo);
 
-	const btnContainer = createBtns();
+	const btnContainer = createBtns(sectionInput);
 	sectionInput.appendChild(btnContainer);
 
 	let date = createDateInput(section);

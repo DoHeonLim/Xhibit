@@ -81,10 +81,10 @@ p {
 .btn {
 	width: auto;
 	border: none;
-	background-color: #f2edd7;
-	font-size: 1rem;
+	/* background-color: #f2edd7; */
+	/* font-size: 1.5vw; */
 	font-weight: 600;
-	margin-left: 1rem;
+	/* margin-left: 1rem; */
 }
 
 .intro-btn {
@@ -388,7 +388,7 @@ h2 {
 	}
 
 	.input-info {
-		flex-grow: 1;
+		flex-grow: 2;
 		padding: 0 0.5vw;
 	}
 
@@ -410,7 +410,6 @@ h2 {
 	}
 
 	.details {
-		margin-left: 2rem;
 		flex-grow: 1;
 	}
 
@@ -451,8 +450,9 @@ h2 {
 
 	.buttons,
 	.btn {
-		margin: 0.25vw;
+		margin: 0.25vw 0;
 		font-size: 1.25vw;
+		background: none;
 	}
 
 	.hide {
@@ -481,6 +481,12 @@ h2 {
 		background-color: #ffffffa6;
 		border-radius: 0.5vw;
 		flex-grow: 1;
+	}
+
+	.btn:hover {
+		background-color: #fff9e3;
+		transition: 0.5s all;
+		border-radius: 0.6vw;
 	}
 }
 
