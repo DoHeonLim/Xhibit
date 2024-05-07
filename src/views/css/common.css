@@ -376,8 +376,6 @@ h2 {
 
 .portfolio-section {
 	margin: 0 1vw;
-	display: flex;
-	justify-content: space-between;
 	border-top: 1px solid #422613;
 	font-size: 1.15vw;
 
@@ -385,7 +383,13 @@ h2 {
 		/* font-family: "Pretendard"; */
 		font-weight: 600;
 		margin: 0.5vw;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.input-info {
 		flex-grow: 1;
+		padding: 0 0.5vw;
 	}
 
 	.item input {
@@ -451,6 +455,10 @@ h2 {
 		font-size: 1.25vw;
 	}
 
+	.hide {
+		visibility: hidden;
+	}
+
 	.chipset {
 		margin: 0.5vw 0;
 		gap: 0.7vw;
@@ -472,6 +480,7 @@ h2 {
 		outline: none !important;
 		background-color: #ffffffa6;
 		border-radius: 0.5vw;
+		flex-grow: 1;
 	}
 }
 

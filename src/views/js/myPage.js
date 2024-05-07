@@ -7,24 +7,32 @@ const portfolioSection = [
 ];
 
 // delete 버튼 만들어 주는 함수
-const createEditBtns = () => {
+const createBtns = () => {
 	const btnContainer = document.createElement("div");
-	btnContainer.className = "button";
+	btnContainer.className = "buttons";
 
-	// 수정 버튼 / 확인 버튼
+	// 확인 버튼 (submit)
+	const submitBtn = document.createElement("button");
+	submitBtn.className = "btn save";
+	submitBtn.innerText = `학인`;
+	submitBtn.setAttribute("type", "submit");
+	btnContainer.appendChild(submitBtn);
+
+	submitBtn.addEventListener("click", function () {
+		editBtn.classList.toggle("hide");
+		submitBtn.classList.toggle("hide");
+	});
+
+	// 수정 버튼
 	const editBtn = document.createElement("div");
-	editBtn.className = "btn save";
-	editBtn.innerText = `학인`;
+	// editBtn.className = "btn edit";
+	editBtn.className = "btn edit hide";
+	editBtn.innerText = `수정`;
 	btnContainer.appendChild(editBtn);
 
 	editBtn.addEventListener("click", function () {
-		editBtn.classList.toggle("save");
-		console.log(editBtn.classList);
-		if (editBtn.classList.contains("save")) {
-			editBtn.innerText = "확인";
-		} else {
-			editBtn.innerText = "수정";
-		}
+		editBtn.classList.toggle("hide");
+		submitBtn.classList.toggle("hide");
 	});
 
 	const deleteBtn = document.createElement("div");
@@ -108,7 +116,6 @@ const createInput = (name, placeholder, maxLength = 80, isDate = false) => {
 	input.placeholder = placeholder;
 	if (name === "proj-link") {
 		input.type = "url";
-		input.required = true;
 	}
 	return input;
 };
@@ -148,7 +155,6 @@ function createDateInput(section) {
 // 사용자가 프로젝트 섹션에 스킬 추가 할때 칩 만들어서 업데이트 해주는 함수
 const createSkills = (chipset) => {
 	const skills = createInput("skills", "스킬 태그를 추가해주세요");
-	// chipset.appendChild(skills);
 
 	skills.addEventListener("keypress", async function (event) {
 		if (event.key === "Enter") {
@@ -162,8 +168,6 @@ const createSkills = (chipset) => {
 		}
 	});
 
-	// chipset.removeChild(skill);
-
 	return skills;
 };
 
@@ -172,7 +176,7 @@ function getFormattedDate(section, dateInputs) {
 
 	const start = `${startYear.value}.${startMonth.value}`;
 
-	if (section === "education" || section === "projects") {
+	if (section === "awards" || section === "certificate") {
 		return start; // If end date is not provided, return only the start date
 	}
 	const end = `${endYear.value}.${endMonth.value}`;
@@ -187,23 +191,12 @@ const createSectionForm = (section) => {
 	const sectionInput = document.createElement("form");
 	sectionInput.className = `item ${section}`;
 
-	sectionInput.addEventListener("submit", (event) => {
-		event.preventDefault(); // Prevent the default form submission behavior
+	const inputInfo = document.createElement("div");
+	inputInfo.className = "input-info";
+	sectionInput.appendChild(inputInfo);
 
-		const dateInputs = {
-			startYear: sectionInput.querySelector('input[name="startYear"]'),
-			startMonth: sectionInput.querySelector('input[name="startMonth"]'),
-			endYear: sectionInput.querySelector('input[name="endYear"]'),
-			endMonth: sectionInput.querySelector('input[name="endMonth"]'),
-		};
-
-		const formattedDate = getFormattedDate(section, dateInputs);
-
-		// Send the formatted date to the backend or do any other necessary operations
-		console.log("날짜:", formattedDate);
-	});
-
-	const editBtnContainer = createEditBtns();
+	const btnContainer = createBtns();
+	sectionInput.appendChild(btnContainer);
 
 	let date = createDateInput(section);
 
@@ -214,9 +207,9 @@ const createSectionForm = (section) => {
 	if (section === "education") {
 		const schoolName = createInput("school-name", "학교명");
 		const major = createInput("major", "전공 및 학위 (ex. 경영학과 학사)");
-		sectionInput.appendChild(schoolName);
-		sectionInput.appendChild(major);
-		sectionInput.appendChild(date);
+		inputInfo.appendChild(schoolName);
+		inputInfo.appendChild(major);
+		inputInfo.appendChild(date);
 	} else if (section === "projects") {
 		const projName = createInput("proj-name", "프로젝트명");
 
@@ -236,14 +229,14 @@ const createSectionForm = (section) => {
 		chipset.className = "chipset";
 		const skills = createSkills(chipset);
 
-		sectionInput.appendChild(projName);
-		sectionInput.appendChild(date);
-		sectionInput.appendChild(link);
-		sectionInput.appendChild(details);
-		sectionInput.appendChild(skills);
-		sectionInput.appendChild(chipset);
+		inputInfo.appendChild(projName);
+		inputInfo.appendChild(date);
+		inputInfo.appendChild(link);
+		inputInfo.appendChild(details);
+		inputInfo.appendChild(skills);
+		inputInfo.appendChild(chipset);
 	} else {
-		sectionInput.appendChild(date);
+		inputInfo.appendChild(date);
 
 		const details = document.createElement("div");
 		details.className = `details ${section}`;
@@ -255,18 +248,33 @@ const createSectionForm = (section) => {
 		const institution = createInput("institution-name", "발급 기관");
 		details.appendChild(institution);
 
-		sectionInput.appendChild(details);
+		inputInfo.appendChild(details);
 	}
 
 	sectionContainer.appendChild(sectionInput);
-	sectionContainer.appendChild(editBtnContainer);
+
+	sectionInput.addEventListener("submit", (event) => {
+		event.preventDefault();
+
+		const dateInputs = {
+			startYear: sectionInput.querySelector('input[name="startYear"]'),
+			startMonth: sectionInput.querySelector('input[name="startMonth"]'),
+			endYear: sectionInput.querySelector('input[name="endYear"]'),
+			endMonth: sectionInput.querySelector('input[name="endMonth"]'),
+		};
+
+		const formattedDate = getFormattedDate(section, dateInputs);
+
+		console.log(section);
+
+		// Send the formatted date to the backend or do any other necessary operations
+		console.log("날짜:", formattedDate);
+	});
 
 	return sectionContainer;
 };
 
 // 엘리먼트 기다려주는 함수
-// 쓰려고 했는데 코드를 수정하면서 필요없게 됨
-// 혹시 몰라 일단 남겨둠
 const waitForElement = (selector) => {
 	return new Promise((resolve) => {
 		const element = document.querySelector(selector);
