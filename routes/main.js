@@ -12,11 +12,7 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const user = await User.find({}, { email: 1, name: 1, introduce: 1 });
-    const education = await Education.find({}, { school: 1, major: 1, periodStart: 1, periodEnd: 1 });
-    const award = await Award.find({}, { name: 1, agency: 1, awardDate: 1 });
-    const certificate = await Certificate.find({}, { name: 1, agency: 1, licenseDate: 1 });
-    const project = await Project.find({}, { link: 1, name: 1, contentTitle: 1, contentDetail: 1, techStack: 1, periodStart: 1, periodEnd: 1 });
-    res.json([user,education,award,certificate,project]);
+    res.json(user);
   } catch (error) {
     console.error(error);
     next(error);
