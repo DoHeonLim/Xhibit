@@ -16,7 +16,7 @@ const projectRouter = require("./routes/project");
 
 const app = express();
 const url =
-  "mongodb+srv://myname:jM7DA5XYx1tyqNer@cluster0.3jc98iw.mongodb.net/";
+  "로컬 몽고 디비 주소";
 const dbName = "portfolio_user";
 
 let corsOptions = {
@@ -28,7 +28,7 @@ let corsOptions = {
 app.use(cors(corsOptions)); // cors 적용
 
 mongoose.connect(
-  "mongodb+srv://myname:jM7DA5XYx1tyqNer@cluster0.3jc98iw.mongodb.net/"
+  "로컬 몽고 디비 주소"
 );
 mongoose.set("strictQuery", false);
 
