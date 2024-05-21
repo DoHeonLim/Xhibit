@@ -26,9 +26,7 @@ let corsOptions = {
 
 app.use(cors(corsOptions)); // cors 적용
 
-mongoose.connect(
-  "mongodb+srv://myname:jM7DA5XYx1tyqNer@cluster0.3jc98iw.mongodb.net/"
-);
+mongoose.connect("mongodb://localhost:27017/");
 mongoose.set("strictQuery", false);
 
 app.use(logger("dev"));
