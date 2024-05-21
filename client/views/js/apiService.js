@@ -2,7 +2,7 @@
 const token = sessionStorage.getItem("token");
 
 // 베이스 url 설정
-const BASE_URL = "http://kdt-ai-10-team04.elicecoding.com";
+const BASE_URL = "http://localhost:3000";
 
 const baseInstance = axios.create({
   baseURL: BASE_URL, // 기본 URL 설정
@@ -11,14 +11,18 @@ const baseInstance = axios.create({
   },
 });
 
+// 다른사람이 다른사람 마이페이지 못들어오게 해야된다.
 // 유저 정보 한꺼번에 가져오기
 export const getUserInfo = async (userId) => {
   try {
-    const response = await baseInstance.get(`/api/${userId}`);
+    const response = await baseInstance.get(`/api/main/${userId}`);
     // 유저 상세 정보 전부 선언
     const { user, education, award, certificate, project } = response.data;
     return { user, education, award, certificate, project };
   } catch (err) {
+    if ((err.response.status = 403)) {
+      window.location.href = "/signin";
+    }
     console.error(`${section} 가져오는데 실패`, err);
     throw err;
   }

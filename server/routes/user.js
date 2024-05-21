@@ -128,7 +128,31 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// 유저 상세 포트폴리오
+// 내 페이지 볼 때
+router.get("/main/:userId", loginRequired, async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    const objectUserId = new ObjectId(userId);
+
+    const user = await User.find(
+      { _id: objectUserId },
+      { email: 1, name: 1, introduce: 1, isDeleted: 1 }
+    );
+
+    const education = await Education.find({ user: objectUserId }).lean();
+    const award = await Award.find({ user: objectUserId }).lean();
+    const certificate = await Certificate.find({ user: objectUserId }).lean();
+    const project = await Project.find({ user: objectUserId }).lean();
+
+    res.json({ user, education, award, certificate, project });
+  } catch (error) {
+    res.status(403);
+    console.error(error);
+    next(error);
+  }
+});
+
+// 다른 사람 페이지 볼때
 router.get("/:userId", async (req, res, next) => {
   try {
     const { userId } = req.params;
