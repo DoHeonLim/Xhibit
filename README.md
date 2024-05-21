@@ -12,7 +12,7 @@
 
 ## Xhibit 서비스 링크
 
-> http://kdt-ai-10-team04.elicecoding.com/
+> 만료
 
 #### 테스트 계정
 
@@ -116,7 +116,7 @@ https://www.figma.com/file/euv3OvywqneMy36YhP8pRy/Elice_Project1?type=design&nod
 
 앱을 테스트하고 싶은 경우 다음의 몽고DB URL을 이용하세요.
 
-- `mongodb+srv://myname:jM7DA5XYx1tyqNer@cluster0.3jc98iw.mongodb.net/`
+- 삭제함
   <br>
 
 4. express 앱을 실행
