@@ -1,3 +1,5 @@
+import { fetchBaseUrl } from "./apiService.js";
+
 // 유저 이메일
 const inputEmail = document.querySelector("#email");
 
@@ -17,7 +19,7 @@ const form = document.getElementsByTagName("form")[0];
 async function onLoginSubmit(e) {
   e.preventDefault();
 
-  const BASE_URL = "http://kdt-ai-10-team04.elicecoding.com";
+  const BASE_URL = await fetchBaseUrl();
 
   const baseInstance = await axios.create({
     baseURL: BASE_URL, // 기본 URL 설정
