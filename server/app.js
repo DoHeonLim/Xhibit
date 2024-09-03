@@ -1,3 +1,6 @@
+// 환경 변수 로드
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -15,9 +18,13 @@ const certificateRouter = require("./routes/certificate");
 const projectRouter = require("./routes/project");
 
 const app = express();
-const url =
-  "mongodb+srv://myname:jM7DA5XYx1tyqNer@cluster0.3jc98iw.mongodb.net/";
-const dbName = "portfolio_user";
+
+// 환경 변수 사용
+const mongoURI = process.env.MONGODB_URI;
+const port = process.env.PORT || 3000;
+
+// Mongoose 설정
+mongoose.set("strictQuery", false);
 
 let corsOptions = {
   origin: true, // 출처 허용 옵션
@@ -26,11 +33,6 @@ let corsOptions = {
 };
 
 app.use(cors(corsOptions)); // cors 적용
-
-mongoose.connect(
-  "mongodb+srv://myname:jM7DA5XYx1tyqNer@cluster0.3jc98iw.mongodb.net/"
-);
-mongoose.set("strictQuery", false);
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -43,18 +45,37 @@ app.use(viewsRouter);
 app.use(passport.initialize());
 passportConfig();
 
+// MongoDB 연결을 관리하는 함수
+const connectToDatabase = async () => {
+  try {
+    const client = await mongoose.connect(mongoURI);
+    console.log("Connected to MongoDB");
+    return client;
+  } catch (err) {
+    console.log("Failed to connect to MongoDB", err);
+    throw err;
+  }
+};
+
+// 서버 시작 시 MongoDB 연결
+connectToDatabase()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to start the server due to DB connection issue", err);
+    process.exit(1);
+  });
+
 // db 저장
 app.post("/saveData", async (req, res) => {
   try {
-    const client = await MongoClient.connect(url, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    const db = client.db(dbName);
+    const db = mongoose.connection.db;
     const collection = db.collection("data");
     const jsonData = req.body;
     await collection.insertOne(jsonData);
-    client.close();
     res.status(200).send("Data saved successfully");
   } catch (err) {
     console.error("Error occurred while processing request:", err);
@@ -67,7 +88,5 @@ app.use("/api/education", eduRouter);
 app.use("/api/award", awardRouter);
 app.use("/api/certificate", certificateRouter);
 app.use("/api/project", projectRouter);
-
-app.listen(3000);
 
 module.exports = app;
