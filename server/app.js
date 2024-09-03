@@ -69,19 +69,19 @@ connectToDatabase()
     process.exit(1);
   });
 
-// db 저장
-app.post("/saveData", async (req, res) => {
-  try {
-    const db = mongoose.connection.db;
-    const collection = db.collection("data");
-    const jsonData = req.body;
-    await collection.insertOne(jsonData);
-    res.status(200).send("Data saved successfully");
-  } catch (err) {
-    console.error("Error occurred while processing request:", err);
-    res.status(500).send("Internal Server Error");
-  }
-});
+// // db 저장
+// app.post("/saveData", async (req, res) => {
+//   try {
+//     const db = mongoose.connection.db;
+//     const collection = db.collection("data");
+//     const jsonData = req.body;
+//     await collection.insertOne(jsonData);
+//     res.status(200).send("Data saved successfully");
+//   } catch (err) {
+//     console.error("Error occurred while processing request:", err);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
 
 app.use("/api", userRouter);
 app.use("/api/education", eduRouter);
