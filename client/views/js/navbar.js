@@ -8,7 +8,9 @@ window.addEventListener("DOMContentLoaded", function () {
   navbar.className = "navbar";
   navbar.innerHTML = `
     <div class="navbar-logo">
+      <a href="/main">
         <img src="/images/logo2.png" />
+      </a>
     </div>
     <div class="navbar-menu">
         <a href="/main">메인페이지</a>
