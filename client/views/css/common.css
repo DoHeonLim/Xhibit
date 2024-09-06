@@ -223,9 +223,8 @@ h2 {
   font-weight: 100;
 }
 
-.my-card,
-.update-password,
-.delete-user {
+.my-card {
+  position: relative;
   display: flex;
   padding: 1vw;
   margin-left: 10vw;
@@ -233,10 +232,6 @@ h2 {
   border-radius: 0.7vw;
   box-shadow: 1px 3px 3px #00000020;
   border: none;
-}
-
-.delete-user {
-  margin-top: 2vw;
 }
 
 .update-password:hover,
@@ -1104,4 +1099,15 @@ input::-ms-clear {
 .error-btn:hover {
   cursor: pointer;
   background-color: #d8b21b;
+}
+
+.mycard-img-div {
+  display: flex;
+  justify-content: center;
+}
+
+.mycard-img {
+  width: 2vw;
+  height: 2vw;
+  padding: 0 2vw;
 }

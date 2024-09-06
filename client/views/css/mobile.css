@@ -393,13 +393,22 @@
     justify-content: center;
   }
 
+  .modal-title {
+    font-size: 10vw;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
   .modal-body {
     padding-top: 8.5vw;
   }
 
   .modal-content {
     width: 80vw;
-    height: 50vw;
   }
 
   .modal-content p {
@@ -408,7 +417,7 @@
 
   .modal-content .modal-footer {
     height: 14vw;
-    width: 100%;
+    width: 80%;
   }
 
   .portfolio-section-item .techStack {
@@ -455,6 +464,50 @@
 
   .my-card-mark img {
     width: 10vw;
+  }
+
+  .mycard-img-div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mycard-img {
+    width: 5vw;
+    height: 5vw;
+    padding: 0 2vw;
+  }
+
+  .del-user,
+  .update-pw {
+    .pw-container {
+      .input-container {
+        display: flex;
+        border: #392619 0.25px solid;
+        border-radius: 0.5vw;
+        align-items: center;
+
+        .btn.btn-default {
+          background-color: inherit;
+          width: 40px;
+          height: 20px;
+        }
+
+        input {
+          width: 100%;
+          height: 4vw;
+          background: inherit;
+          border: none;
+          margin-bottom: 0;
+        }
+
+        input:active,
+        .input:focus {
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
   }
 }
 
