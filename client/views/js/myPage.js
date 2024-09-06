@@ -26,6 +26,28 @@ const portfolioSection = [
   { className: "project", title: "프로젝트" },
 ];
 
+// 유저 본인인지 확인하는 함수
+function validationUserCheck() {
+  // URL에서 userId 파라미터 추출
+  const params = new URLSearchParams(window.location.search);
+  const paramsUserId = params.get("userId");
+  // session 에서 userId 추출
+  const sessionUserId = sessionStorage.getItem("userId");
+
+  // URL과 session값 비교
+  if (paramsUserId !== sessionUserId) {
+    try {
+      throw new Error("UserId mismatch");
+    } catch (error) {
+      console.error("Error:", error.message);
+      alert("접근 권한이 없습니다.");
+      window.location.href = "/errorPage?code=403";
+    }
+  } else {
+    console.log("userId match!!");
+  }
+}
+
 // 백엔드로 보낼 날짜 포멧해주는 함수
 function getFormattedDate(section, dateInputs) {
   const { startYear, startMonth, endYear, endMonth } = dateInputs;
@@ -631,5 +653,6 @@ async function displayUserInfo() {
   }
 }
 
+validationUserCheck();
 updatePortfolioSections();
 displayUserInfo();

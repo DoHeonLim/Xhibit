@@ -37,7 +37,7 @@ router.post("/signin", async (req, res, next) => {
 
         // 클라이언트에게 JWT생성 후 반환
         const token = jwt.sign(
-          { _id: user.id, name: user.name }, //맞는지 확인할려고 name까지 넣음 , elice시크릿 키 같은 경우 .dev 사용해야될듯
+          { _id: user.id, name: user.name }, //맞는지 확인할려고 name까지 넣음 ,
           JWT_SECRET_KEY,
           {
             expiresIn: "24h",

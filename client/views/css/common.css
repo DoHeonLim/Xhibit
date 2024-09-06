@@ -1074,3 +1074,34 @@ input::-ms-clear {
 .my-card-mark img {
   width: 3vw;
 }
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-title {
+  font-size: 10vw;
+  color: #422613;
+  margin: 0;
+}
+
+.error-message {
+  font-size: 2vw;
+  margin: 2vw 0;
+}
+
+.error-btn {
+  padding: 1vw;
+  background-color: #392619;
+  color: #f2edd7;
+  padding: 16px 20px;
+  border-radius: 12px;
+}
+
+.error-btn:hover {
+  cursor: pointer;
+  background-color: #d8b21b;
+}
