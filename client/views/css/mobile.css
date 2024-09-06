@@ -87,6 +87,10 @@
     margin: 0 5vw;
   }
 
+  .portfolio .skill {
+    height: 20px;
+  }
+
   h2 {
     padding: 0;
     display: flex;
@@ -393,13 +397,22 @@
     justify-content: center;
   }
 
+  .modal-title {
+    font-size: 10vw;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
   .modal-body {
     padding-top: 8.5vw;
   }
 
   .modal-content {
     width: 80vw;
-    height: 50vw;
   }
 
   .modal-content p {
@@ -408,7 +421,7 @@
 
   .modal-content .modal-footer {
     height: 14vw;
-    width: 100%;
+    width: 80%;
   }
 
   .portfolio-section-item .techStack {
@@ -455,6 +468,116 @@
 
   .my-card-mark img {
     width: 10vw;
+  }
+
+  .mycard-img-div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mycard-img {
+    width: 5vw;
+    height: 5vw;
+    padding: 0 2vw;
+  }
+
+  .del-user,
+  .update-pw {
+    .pw-container {
+      .input-container {
+        display: flex;
+        border: #392619 0.25px solid;
+        border-radius: 0.5vw;
+        align-items: center;
+
+        .btn.btn-default {
+          background-color: inherit;
+          width: 40px;
+          height: 20px;
+        }
+
+        input {
+          width: 100%;
+          height: 4vw;
+          background: inherit;
+          border: none;
+          margin-bottom: 0;
+        }
+
+        input:active,
+        .input:focus {
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  #pop-up {
+    opacity: 0;
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px;
+    background: #fff9e3;
+    border-radius: 100px;
+    color: black;
+    box-shadow: 3px 4px 11px 0px #00000040;
+    transition: all 0.5s;
+    font-size: 3vw;
+  }
+
+  #pop-up.active {
+    opacity: 100%;
+    bottom: 50px;
+  }
+
+  /* 모달 스타일 */
+  .delete-form {
+    background-color: #f2edd7;
+    height: 50vw;
+    display: flex;
+    flex-direction: column;
+
+    .modal-question {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 7vw;
+
+      p {
+        margin: 0;
+        padding: 0.2vw;
+        font-size: 5vw;
+      }
+    }
+
+    .delete-buttons {
+      border-top-color: #42261354;
+      display: flex;
+      justify-content: center;
+      padding: 0.5vw;
+      width: 80vw;
+
+      button {
+        width: 6vw;
+        height: 3vw;
+        border-radius: none;
+        border: none;
+        font-size: 1.2vw;
+      }
+
+      #btn-closeB {
+        background-color: rgb(155, 154, 154);
+        color: white;
+      }
+
+      #btn-confirm {
+        background-color: #422613;
+      }
+    }
   }
 }
 

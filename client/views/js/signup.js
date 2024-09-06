@@ -1,3 +1,5 @@
+import { fetchBaseUrl } from "./apiService.js";
+
 // 유저 네임
 const inputName = document.querySelector("#name");
 // 유저 이메일
@@ -115,7 +117,8 @@ const form = document.getElementsByTagName("form")[0];
 async function onLoginSubmit(e) {
   e.preventDefault();
   // console.log(inputName, inputEmail, inputPassword);
-  const BASE_URL = "http://kdt-ai-10-team04.elicecoding.com";
+
+  const BASE_URL = await fetchBaseUrl();
 
   const baseInstance = await axios.create({
     baseURL: BASE_URL, // 기본 URL 설정
@@ -130,9 +133,9 @@ async function onLoginSubmit(e) {
     .then(() => {
       window.location.href = "/welcomePage";
     })
-    .catch(() => {
+    .catch((err) => {
       emailDuplicationMessage.classList.remove("hide"); // 실패 메시지 보임
-      console.log("login error");
+      console.log("login error", err);
     });
   // response가 잘 들어왔는지 확인
   // console.log(response.data.data);

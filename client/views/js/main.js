@@ -1,12 +1,14 @@
+import { fetchBaseUrl } from "./apiService.js";
+
 // 세션에서 토큰 가져온다.
 const token = sessionStorage.getItem("token");
-const userId = this.sessionStorage.getItem("userId");
+const userId = sessionStorage.getItem("userId");
 
 // 리스트 시작
-function getUsers() {
+async function getUsers() {
   const userCardList = document.querySelector(".user_card-list");
 
-  const BASE_URL = "http://kdt-ai-10-team04.elicecoding.com";
+  const BASE_URL = await fetchBaseUrl();
 
   const baseInstance = axios.create({
     baseURL: BASE_URL, // 기본 URL 설정

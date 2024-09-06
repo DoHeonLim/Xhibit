@@ -1,4 +1,7 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 function jwtAuthenticationMiddleware(req, res, next) {
   // console.log("헤더체크", req);
@@ -16,7 +19,7 @@ function jwtAuthenticationMiddleware(req, res, next) {
   //   return res.sendStatus(401);
   // }
 
-  jwt.verify(token, "elice", (err, user) => {
+  jwt.verify(token, JWT_SECRET_KEY, (err, user) => {
     if (err) return res.sendStatus(403);
     next();
   });

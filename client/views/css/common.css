@@ -55,6 +55,7 @@ p {
 .navbar-logo img {
   width: 8vw;
   margin-top: 2vw;
+  cursor: pointer;
 }
 
 .navbar-menu {
@@ -222,9 +223,8 @@ h2 {
   font-weight: 100;
 }
 
-.my-card,
-.update-password,
-.delete-user {
+.my-card {
+  position: relative;
   display: flex;
   padding: 1vw;
   margin-left: 10vw;
@@ -232,10 +232,6 @@ h2 {
   border-radius: 0.7vw;
   box-shadow: 1px 3px 3px #00000020;
   border: none;
-}
-
-.delete-user {
-  margin-top: 2vw;
 }
 
 .update-password:hover,
@@ -1072,4 +1068,46 @@ input::-ms-clear {
 
 .my-card-mark img {
   width: 3vw;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-title {
+  font-size: 10vw;
+  color: #422613;
+  margin: 0;
+}
+
+.error-message {
+  font-size: 2vw;
+  margin: 2vw 0;
+}
+
+.error-btn {
+  padding: 1vw;
+  background-color: #392619;
+  color: #f2edd7;
+  padding: 16px 20px;
+  border-radius: 12px;
+}
+
+.error-btn:hover {
+  cursor: pointer;
+  background-color: #d8b21b;
+}
+
+.mycard-img-div {
+  display: flex;
+  justify-content: center;
+}
+
+.mycard-img {
+  width: 2vw;
+  height: 2vw;
+  padding: 0 2vw;
 }

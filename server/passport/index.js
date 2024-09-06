@@ -1,3 +1,6 @@
+require("dotenv").config();
+
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 //로그인 기능을 구현하기 위해 우선 passport에 구현할 인증 기능을 설정 후 등록해줘야 한다.
 const passport = require("passport"); //passport 미들웨어 등록하기 위한 passport 모듈
 const { Strategy: LocalStrategy } = require("passport-local"); // 사용자 인증 구현할 Strategy(나중에 JWT의 Strategy와 이름이 겹쳐서 다른이름 선언)
@@ -51,7 +54,7 @@ const passportVerify = async (email, password, done) => {
 // JWT 설정
 const JWTConfig = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: "elice",
+  secretOrKey: JWT_SECRET_KEY,
 };
 
 //그리고 JWT토큰을 읽기 위해 다음 설정을 추가한다.
