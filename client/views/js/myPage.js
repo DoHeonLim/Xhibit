@@ -74,6 +74,23 @@ function createSectionForm(section, data = null) {
   inputInfo.className = "input-info";
   sectionInput.appendChild(inputInfo);
 
+  // Tab 이동을 제어하는 함수
+  function handleTabNavigation(event) {
+    if (event.key === "Tab") {
+      event.preventDefault(); // 기본 Tab 동작을 막음
+      const focusableElements = inputInfo.querySelectorAll(
+        "input, textarea, select, button"
+      );
+      const index = Array.from(focusableElements).indexOf(
+        document.activeElement
+      );
+      const nextIndex = (index + 1) % focusableElements.length;
+      focusableElements[nextIndex].focus();
+    }
+  }
+
+  inputInfo.addEventListener("keydown", handleTabNavigation);
+
   let date;
   if (!data) {
     date = createDateInput(section);
