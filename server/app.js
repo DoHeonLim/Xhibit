@@ -69,24 +69,16 @@ connectToDatabase()
     process.exit(1);
   });
 
-// // db 저장
-// app.post("/saveData", async (req, res) => {
-//   try {
-//     const db = mongoose.connection.db;
-//     const collection = db.collection("data");
-//     const jsonData = req.body;
-//     await collection.insertOne(jsonData);
-//     res.status(200).send("Data saved successfully");
-//   } catch (err) {
-//     console.error("Error occurred while processing request:", err);
-//     res.status(500).send("Internal Server Error");
-//   }
-// });
-
 app.use("/api", userRouter);
 app.use("/api/education", eduRouter);
 app.use("/api/award", awardRouter);
 app.use("/api/certificate", certificateRouter);
 app.use("/api/project", projectRouter);
+
+// 404 페이지 처리 미들웨어
+app.use((req, res, next) => {
+  const errorCode = 404;
+  res.redirect(`/errorPage?code=${errorCode}}`);
+});
 
 module.exports = app;
